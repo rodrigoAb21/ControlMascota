@@ -11,6 +11,53 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::table('mascota')->insert([
+            'nombre' => 'Don Gato',
+            'fecha_nac' => null,
+            'tipo' => 'Felino',
+            'sexo' => 'M',
+        ]);
+
+        DB::table('mascota')->insert([
+            'nombre' => 'Minina',
+            'fecha_nac' => null,
+            'tipo' => 'Felino',
+            'sexo' => 'H',
+        ]);
+
+        DB::table('mascota')->insert([
+            'nombre' => 'Nora 1',
+            'fecha_nac' => null,
+            'tipo' => 'Felino',
+            'sexo' => 'H',
+        ]);
+
+        DB::table('mascota')->insert([
+            'nombre' => 'Nora 2',
+            'fecha_nac' => null,
+            'tipo' => 'Felino',
+            'sexo' => 'H',
+        ]);
+
+        DB::table('mascota')->insert([
+            'nombre' => 'Beethoven',
+            'fecha_nac' => null,
+            'tipo' => 'Felino',
+            'sexo' => 'M',
+        ]);
+
+        DB::table('mascota')->insert([
+            'nombre' => 'Surubi',
+            'fecha_nac' => '2021-01-01',
+            'tipo' => 'Felino',
+            'sexo' => 'M',
+        ]);
+
+        DB::table('mascota')->insert([
+            'nombre' => 'Janucho',
+            'fecha_nac' => '2021-01-01',
+            'tipo' => 'Felino',
+            'sexo' => 'M',
+        ]);
     }
 }

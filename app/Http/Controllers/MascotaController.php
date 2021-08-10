@@ -7,14 +7,19 @@ use Illuminate\Http\Request;
 
 class MascotaController extends Controller
 {
+    private $tipos = [
+        'Felino',
+        'Canino'
+    ];
+
     public function index()
     {
-        return view('vistas.mascotas.index', ['mascotas' => Mascota::all()]);
+        return view('vistas.mascotas.index', ['mascotas' => Mascota::orderBy('id', 'asc')->get()]);
     }
 
     public function create()
     {
-        return view('vistas.mascotas.create');
+        return view('vistas.mascotas.create', ['tipos' => $this->tipos]);
     }
 
     public function store(Request $request)
@@ -36,7 +41,11 @@ class MascotaController extends Controller
 
     public function edit($id)
     {
-        return view('vistas.mascotas.edit', ['mascota' => Mascota::findOrFail($id)]);
+
+        return view('vistas.mascotas.edit', [
+            'mascota' => Mascota::findOrFail($id),
+            'tipos' => $this->tipos
+            ]);
     }
 
     public function update(Request $request, $id)
@@ -56,6 +65,6 @@ class MascotaController extends Controller
         $mascota = Mascota::findOrFail($id);
         $mascota->delete();
 
-        return redirect('mascota');
+        return redirect('mascotas');
     }
 }
