@@ -25,8 +25,8 @@
     </div>
 </nav>
 
-<div class="container mt-5">
-    <div class="row mb-5 pb-5">
+<div class="container mt-3">
+    <div class="row">
         <div class="col-12">
             @yield('contenido')
         </div>

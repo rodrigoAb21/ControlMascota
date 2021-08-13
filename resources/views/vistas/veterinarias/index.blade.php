@@ -1,21 +1,21 @@
 @extends('layouts.index')
 @section('contenido')
-    <h2>Mis mascotas</h2>
-    @foreach($mascotas as $mascota)
+    <h2>Veterinarias</h2>
+    @foreach($veterinarias as $veterinaria)
         <div class="card mb-3 mx-auto bg-gradient" style="max-width: 600px; background-color: #19317b; border-radius: 10px;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
                     </div>
                     <div class="col-10">
-                        <h2 class="card-title" style="color: #91d5f1">{{$mascota->nombre}}</h2>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-paw me-1"></i> {{$mascota->tipo}}</span><br>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-birthday-cake me-1"></i> {{$mascota->fecha_nac}}</span><br>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fas fa-venus-mars me-1"></i> {{$mascota->sexo}}</span><br>
+                        <h2 class="card-title" style="color: #91d5f1">{{$veterinaria->nombre}}</h2>
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-globe-americas me-1"></i> {{$veterinaria->direccion}}</span><br>
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-phone me-1"></i> {{$veterinaria->telefono1}}</span><br>
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-mobile-alt me-1"></i> {{$veterinaria->telefono2}}</span><br>
 
                         <div class="text-end">
-                            <a href="{{url('mascotas/'.$mascota->id.'/edit')}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
-                            <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$mascota -> nombre}}', '{{url('mascotas/'.$mascota -> id)}}')">
+                            <a href="{{url('veterinarias/'.$veterinaria->id.'/edit')}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
+                            <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$veterinaria -> nombre}}', '{{url('veterinarias/'.$veterinaria -> id)}}')">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </div>
@@ -55,7 +55,7 @@
 
         </style>
     @endpush
-    <a href="{{url('mascotas/create')}}" class="float">
+    <a href="{{url('veterinarias/create')}}" class="float">
         <i class="fa fa-plus fa-2x my-float"></i>
     </a>
 
@@ -65,8 +65,8 @@
             function modalEliminar(nombre, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
-                $('#modalEliminarTitulo').html("Eliminar Mascota");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la mascota: " + nombre + "?");
+                $('#modalEliminarTitulo').html("Eliminar veterinaria");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar la veterinaria: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
         </script>
