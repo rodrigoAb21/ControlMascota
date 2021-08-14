@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mascota;
 use App\Operacion;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class OperacionController extends Controller
         $operacion = new Operacion();
         $operacion->descripcion = $request['descripcion'];
         $operacion->fecha = $request['fecha'];
-        $operacion->mascota_id = $request['mascota_id'];
+        $operacion->mascota_id = $mascota_id;
         $operacion->save();
 
         return redirect('mascotas/'.$mascota_id.'/operaciones');
@@ -46,7 +47,6 @@ class OperacionController extends Controller
         $operacion = Operacion::findOrFail($id);
         $operacion->descripcion = $request['descripcion'];
         $operacion->fecha = $request['fecha'];
-        $operacion->mascota_id = $request['mascota_id'];
         $operacion->update();
 
         return redirect('mascotas/'.$mascota_id.'/operaciones');
