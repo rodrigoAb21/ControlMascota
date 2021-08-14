@@ -14,6 +14,7 @@
                         <span class="card-text" style="color: #c7c7c7"><i class="fas fa-venus-mars me-1"></i> {{$mascota->sexo}}</span><br>
 
                         <div class="text-end">
+                            <a href="{{url('mascotas/'.$mascota->id)}}" class="btn btn-light"><i class="fa fa-eye"></i></a>
                             <a href="{{url('mascotas/'.$mascota->id.'/edit')}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
                             <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$mascota -> nombre}}', '{{url('mascotas/'.$mascota -> id)}}')">
                                 <i class="fa fa-trash"></i>
