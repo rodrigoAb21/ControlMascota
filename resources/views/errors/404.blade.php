@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <!-- Required meta tags -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -42,8 +42,8 @@
             <div class="row">
                 <div class="col-lg-8 col-12 col-sm-10 offset-lg-2 offset-sm-1">
                     <h1 class="m-0">404</h1>
-                    <h3>Page not found</h3>
-                    <p><a href="{{url('/')}}" class="btn btn-danger">Return home</a></p>
+                    <h3>Página no encontrada</h3>
+                    <p><a href="{{url('/')}}" class="btn btn-danger">Volver al Inicio</a></p>
                 </div>
             </div>
         </div>
