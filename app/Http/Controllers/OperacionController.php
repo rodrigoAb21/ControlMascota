@@ -11,16 +11,17 @@ class OperacionController extends Controller
     {
         return view('vistas.operaciones.index',
             [
-                'operaciones' => Operacion::where('mascota_id', '=', $mascota_id)->get()
+                'operaciones' => Operacion::where('mascota_id', '=', $mascota_id)->get(),
+                'mascota' => Mascota::findOrFail($mascota_id),
             ]);
     }
 
-    public function create()
+    public function create($mascota_id)
     {
-        return view('vistas.operaciones.create');
+        return view('vistas.operaciones.create', ['mascota_id' => $mascota_id]);
     }
 
-    public function store(Request $request)
+    public function store($mascota_id, Request $request)
     {
         $operacion = new Operacion();
         $operacion->descripcion = $request['descripcion'];
@@ -28,20 +29,19 @@ class OperacionController extends Controller
         $operacion->mascota_id = $request['mascota_id'];
         $operacion->save();
 
-        return redirect('operaciones');
+        return redirect('mascotas/'.$mascota_id.'/operaciones');
     }
 
-    public function show($id)
+    public function edit($mascota_id, $id)
     {
-        return view('vistas.operaciones.show', ['operacion' => Operacion::findOrFail($id)]);
+        return view('vistas.operaciones.edit', 
+            [
+                'operacion' => Operacion::findOrFail($id),
+                'mascota_id' => $mascota_id,
+            ]);
     }
 
-    public function edit($id)
-    {
-        return view('vistas.operaciones.edit', ['operacion' => Operacion::findOrFail($id)]);
-    }
-
-    public function update(Request $request, $id)
+    public function update($mascota_id, Request $request, $id)
     {
         $operacion = Operacion::findOrFail($id);
         $operacion->descripcion = $request['descripcion'];
@@ -49,14 +49,14 @@ class OperacionController extends Controller
         $operacion->mascota_id = $request['mascota_id'];
         $operacion->update();
 
-        return redirect('operaciones');
+        return redirect('mascotas/'.$mascota_id.'/operaciones');
     }
 
-    public function destroy($id)
+    public function destroy($mascota_id, $id)
     {
         $operacion = Operacion::findOrFail($id);
         $operacion->delete();
 
-        return redirect('operacion');
+        return redirect('mascotas/'.$mascota_id.'/operaciones');
     }
 }

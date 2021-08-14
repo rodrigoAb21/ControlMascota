@@ -68,7 +68,7 @@
             </div>
             <br>
             <div class="wrimagecard wrimagecard-topimage text-center ">
-                <a href="{{url('mascotas/'.$mascota->id.'/desparacitaciones')}}">
+                <a href="{{url('mascotas/'.$mascota->id.'/desparasitaciones')}}">
                     <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
                         <i class="fa fa-bacteria" style="color:#BB7824"></i>
                     </div>
