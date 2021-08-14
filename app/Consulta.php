@@ -21,4 +21,8 @@ class Consulta extends Model
     public function tratamientos(){
         return $this->hasMany(Tratamiento::class);
     }
+
+    public function veterinaria(){
+        return $this->belongsTo('App\Veterinaria', 'veterinaria_id', 'id');
+    }
 }

@@ -24,6 +24,7 @@
             </div>
         </div>
     @endforeach
+    <div style="margin-bottom: 200px"></div>
     @push('arriba')
         <style>
             *{padding:0;margin:0;}

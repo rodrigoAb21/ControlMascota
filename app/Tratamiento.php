@@ -13,7 +13,6 @@ class Tratamiento extends Model
         'medicamento',
         'dosis',
         'cantidad_dias',
-        'presentacion',
         'consulta_id',
     ];
 }

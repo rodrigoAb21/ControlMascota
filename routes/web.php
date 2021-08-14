@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('mascotas/{mascota_id}/consultas', 'ConsultaController@index');
 Route::get('mascotas/{mascota_id}/consultas/create', 'ConsultaController@create');
 Route::post('mascotas/{mascota_id}/consultas', 'ConsultaController@store');
+Route::get('mascotas/{mascota_id}/consultas/{vacuna_id}', 'ConsultaController@show');
 Route::get('mascotas/{mascota_id}/consultas/{vacuna_id}/edit', 'ConsultaController@edit');
 Route::patch('mascotas/{mascota_id}/consultas/{consulta_id}', 'ConsultaController@update');
 Route::delete('mascotas/{mascota_id}/consultas/{consulta_id}', 'ConsultaController@destroy');

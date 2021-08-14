@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Consulta;
 use App\Mascota;
 use App\Tratamiento;
+use App\Veterinaria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,17 +15,22 @@ class ConsultaController extends Controller
     {
         return view('vistas.consultas.index',
             [
-                'consultas' => Consulta::where('mascota_id', '=', $mascota_id)->get(),
+                'consultas' => Consulta::where('mascota_id', '=', $mascota_id)->orderBy('id', 'desc')->get(),
                 'mascota' => Mascota::findOrFail($mascota_id),
             ]);
     }
 
-    public function create()
+    public function create($mascota_id)
     {
-        return view('vistas.consultas.create');
+        return view('vistas.consultas.create',
+            [
+                'veterinarias' => Veterinaria::all(),
+                'mascota_id' => $mascota_id,
+            ]
+        );
     }
 
-    public function store(Request $request)
+    public function store($mascota_id, Request $request)
     {
         try {
             DB::beginTransaction();
@@ -34,29 +40,29 @@ class ConsultaController extends Controller
             $consulta->diagnostico = $request['diagnostico'];
             $consulta->fecha_control = $request['fecha_control'];
             $consulta->veterinaria_id = $request['veterinaria_id'];
-            $consulta->mascota_id = $request['mascota_id'];
+            $consulta->mascota_id = $mascota_id;
             $consulta->save();
 
 
             $medicamentos = $request->get('medicamentoT');
             $dosis = $request->get('dosisT');
             $cantidad_dias = $request->get('cantidad_diasT');
-            $presentaciones = $request->get('presentacionT');
             $cont = 0;
 
 
-            while ($cont < count($medicamentos)) {
-                $tratamiento = new Tratamiento();
-                $tratamiento->medicamento = $medicamentos[$cont];
-                $tratamiento->dosis = $dosis[$cont];
-                $tratamiento->cantidad_dias = $cantidad_dias[$cont];
-                $tratamiento->presentacion = $presentaciones[$cont];
-                $tratamiento->consulta_id = $consulta->id;
+            if ($medicamentos){
+                while ($cont < count($medicamentos)) {
+                    $tratamiento = new Tratamiento();
+                    $tratamiento->medicamento = $medicamentos[$cont];
+                    $tratamiento->dosis = $dosis[$cont];
+                    $tratamiento->cantidad_dias = $cantidad_dias[$cont];
+                    $tratamiento->consulta_id = $consulta->id;
 
-                $tratamiento->save();
+                    $tratamiento->save();
 
 
-                $cont = $cont + 1;
+                    $cont = $cont + 1;
+                }
             }
 
             DB::commit();
@@ -67,34 +73,39 @@ class ConsultaController extends Controller
 
         }
 
-        return redirect('consultas');
+        return redirect('mascotas/'.$mascota_id.'/consultas');
     }
 
-    public function show($id)
+    public function show($mascota_id, $id)
     {
-        return view('vistas.consultas.show', ['consulta' => Consulta::findOrFail($id)]);
+        return view('vistas.consultas.show',
+            [
+                'consulta' => Consulta::findOrFail($id),
+                'mascota_id' => $mascota_id,
+            ]);
     }
 
-    public function edit($id)
+    public function edit($mascota_id, $id)
     {
         return view('vistas.consultas.edit',
             [
                 'consulta' => Consulta::findOrFail($id),
+                'veterinarias' => Veterinaria::all(),
+                'mascota_id' => $mascota_id,
                 'tratamientos' => Tratamiento::where('consulta_id', '=', $id)->get(),
             ]);
     }
 
-    public function update(Request $request, $id)
+    public function update($mascota_id, Request $request, $id)
     {
         try {
             DB::beginTransaction();
-            $consulta = new Consulta();
+            $consulta = Consulta::findOrFail($id);
             $consulta->fecha_consulta = $request['fecha_consulta'];
             $consulta->sintomas = $request['sintomas'];
             $consulta->diagnostico = $request['diagnostico'];
             $consulta->fecha_control = $request['fecha_control'];
             $consulta->veterinaria_id = $request['veterinaria_id'];
-            $consulta->mascota_id = $request['mascota_id'];
             $consulta->update();
 
 
@@ -103,24 +114,24 @@ class ConsultaController extends Controller
             $medicamentos = $request->get('medicamentoT');
             $dosis = $request->get('dosisT');
             $cantidad_dias = $request->get('cantidad_diasT');
-            $presentaciones = $request->get('presentacionT');
             $cont = 0;
 
 
-            while ($cont < count($medicamentos)) {
-                $tratamiento = new Tratamiento();
-                $tratamiento->medicamento = $medicamentos[$cont];
-                $tratamiento->dosis = $dosis[$cont];
-                $tratamiento->cantidad_dias = $cantidad_dias[$cont];
-                $tratamiento->presentacion = $presentaciones[$cont];
-                $tratamiento->consulta_id = $consulta->id;
+            if ($medicamentos){
+                while ($cont < count($medicamentos)) {
+                    $tratamiento = new Tratamiento();
+                    $tratamiento->medicamento = $medicamentos[$cont];
+                    $tratamiento->dosis = $dosis[$cont];
+                    $tratamiento->cantidad_dias = $cantidad_dias[$cont];
+                    $tratamiento->consulta_id = $consulta->id;
 
-                $tratamiento->save();
+                    $tratamiento->save();
 
 
-                $cont = $cont + 1;
+                    $cont = $cont + 1;
+                }
+
             }
-
             DB::commit();
 
         } catch (QueryException $e) {
@@ -129,14 +140,14 @@ class ConsultaController extends Controller
 
         }
 
-        return redirect('consultas');
+        return redirect('mascotas/'.$mascota_id.'/consultas');
     }
 
-    public function destroy($id)
+    public function destroy($mascota_id, $id)
     {
         $consulta = Consulta::findOrFail($id);
         $consulta->delete();
 
-        return redirect('consulta');
+        return redirect('mascotas/'.$mascota_id.'/consultas');
     }
 }

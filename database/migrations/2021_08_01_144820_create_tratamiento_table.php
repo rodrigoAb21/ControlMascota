@@ -18,7 +18,6 @@ class CreateTratamientoTable extends Migration
             $table->string('medicamento');
             $table->string('dosis');
             $table->integer('cantidad_dias');
-            $table->string('presentacion');
             $table->unsignedInteger('consulta_id');
             $table->foreign('consulta_id')->references('id')
                 ->on('consulta')->onDelete('cascade');

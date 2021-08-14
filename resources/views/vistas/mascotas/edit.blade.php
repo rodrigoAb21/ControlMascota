@@ -30,28 +30,28 @@
         <div class="mb-3">
             <label class="form-label">Sexo</label>
             <br>
-            @if($mascota->sexo == 'M')
+            @if($mascota->sexo == 'Macho')
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sexo" value="M" checked>
+                    <input class="form-check-input" type="radio" name="sexo" value="Macho" checked>
                     <label class="form-check-label" for="flexRadioDefault1">
                         Macho
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sexo" value="H">
+                    <input class="form-check-input" type="radio" name="sexo" value="Hembra">
                     <label class="form-check-label" for="flexRadioDefault2">
                         Hembra
                     </label>
                 </div>
             @else
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sexo" value="M">
+                    <input class="form-check-input" type="radio" name="sexo" value="Macho">
                     <label class="form-check-label" for="flexRadioDefault1">
                         Macho
                     </label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="sexo" value="H" checked>
+                    <input class="form-check-input" type="radio" name="sexo" value="Hembra" checked>
                     <label class="form-check-label" for="flexRadioDefault2">
                         Hembra
                     </label>
@@ -60,6 +60,6 @@
 
         </div>
         <a href="{{url('mascotas')}}" class="btn btn-warning">Atras</a>
-        <button type="Guardar" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 @endsection

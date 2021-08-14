@@ -18,7 +18,7 @@ class CreateMascotaTable extends Migration
             $table->string('nombre');
             $table->date('fecha_nac')->nullable();
             $table->string('tipo');
-            $table->string('sexo',1);
+            $table->string('sexo');
         });
     }
 

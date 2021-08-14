@@ -20,6 +20,6 @@
         </div>
 
         <a href="{{url('mascotas/'.$mascota_id.'/desparasitaciones')}}" class="btn btn-warning">Atras</a>
-        <button type="Guardar" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 @endsection
