@@ -64,6 +64,6 @@ class VeterinariaController extends Controller
         $veterinaria = Veterinaria::findOrFail($id);
         $veterinaria->delete();
 
-        return redirect('veterinaria');
+        return redirect('veterinarias');
     }
 }
