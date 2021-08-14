@@ -9,7 +9,11 @@ class VeterinariaController extends Controller
 {
     public function index()
     {
-        return view('vistas.veterinarias.index', ['veterinarias' => Veterinaria::all()]);
+        return view('vistas.veterinarias.index',
+            [
+                'veterinarias' => Veterinaria::orderBy('id', 'asc')->get(),
+            ]
+        );
     }
 
     public function create()

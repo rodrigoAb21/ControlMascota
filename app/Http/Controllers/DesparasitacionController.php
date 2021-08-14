@@ -12,7 +12,7 @@ class DesparasitacionController extends Controller
     {
         return view('vistas.desparasitaciones.index',
             [
-                'desparasitaciones' => Desparasitacion::where('mascota_id','=',$mascota_id)->get(),
+                'desparasitaciones' => Desparasitacion::where('mascota_id','=',$mascota_id)->orderBy('id', 'asc')->get(),
                 'mascota' => Mascota::findOrFail($mascota_id),
             ]);
     }

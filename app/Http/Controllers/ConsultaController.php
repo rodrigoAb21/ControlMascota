@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Consulta;
+use App\Mascota;
 use App\Tratamiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +14,8 @@ class ConsultaController extends Controller
     {
         return view('vistas.consultas.index',
             [
-                'consultas' => Consulta::where('mascota_id', '=', $mascota_id)->get()
+                'consultas' => Consulta::where('mascota_id', '=', $mascota_id)->get(),
+                'mascota' => Mascota::findOrFail($mascota_id),
             ]);
     }
 

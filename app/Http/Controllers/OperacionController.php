@@ -12,7 +12,7 @@ class OperacionController extends Controller
     {
         return view('vistas.operaciones.index',
             [
-                'operaciones' => Operacion::where('mascota_id', '=', $mascota_id)->get(),
+                'operaciones' => Operacion::where('mascota_id', '=', $mascota_id)->orderBy('id', 'asc')->get(),
                 'mascota' => Mascota::findOrFail($mascota_id),
             ]);
     }

@@ -12,7 +12,7 @@ class VacunacionController extends Controller
     {
         return view('vistas.vacunaciones.index',
             [
-                'vacunaciones' => Vacunacion::where('mascota_id', '=', $mascota_id)->get(),
+                'vacunaciones' => Vacunacion::where('mascota_id', '=', $mascota_id)->orderBy('id', 'asc')->get(),
                 'mascota' => Mascota::findOrFail($mascota_id),
             ]);
     }
