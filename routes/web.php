@@ -57,3 +57,7 @@ Route::delete('mascotas/{mascota_id}/operaciones/{vacuna_id}', 'OperacionControl
 
 Route::resource('mascotas', 'MascotaController');
 Route::resource('veterinarias', 'VeterinariaController');
+
+Route::get( '(.*)', function(){
+    return redirect('/');
+});

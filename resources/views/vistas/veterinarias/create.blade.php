@@ -15,11 +15,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Telefono</label>
-                    <input class="form-control" type="text" name="telefono1">
+                    <input class="form-control" type="number" max="79999999" name="telefono1">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Celular</label>
-                    <input class="form-control" type="text" name="telefono2">
+                    <input class="form-control" type="number" max="79999999" name="telefono2">
                 </div>
 
                 <a href="{{url('veterinarias')}}" class="btn btn-warning">Atras</a>

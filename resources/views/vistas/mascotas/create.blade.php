@@ -11,12 +11,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Nacimiento</label>
-
                     <input type="date" class="form-control" name="fecha_nac" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tipo</label>
-                    <select class="form-control" name="tipo">
+                    <select class="form-control" name="tipo" required>
                         @foreach($tipos as $tipo)
                             <option value="{{$tipo}}">{{$tipo}}</option>
                         @endforeach

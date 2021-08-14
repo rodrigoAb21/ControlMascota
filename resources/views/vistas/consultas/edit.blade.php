@@ -28,11 +28,11 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Sintomas</label>
-            <textarea class="form-control" name="sintomas" rows="5">{{$consulta->sintomas}}</textarea>
+            <textarea class="form-control" name="sintomas" required rows="5">{{$consulta->sintomas}}</textarea>
         </div>
         <div class="mb-3">
             <label class="form-label">Diagnostico</label>
-            <textarea class="form-control" name="diagnostico" rows="5">{{$consulta->diagnostico}}</textarea>
+            <textarea class="form-control" name="diagnostico" required rows="5">{{$consulta->diagnostico}}</textarea>
         </div>
         <hr>
         <h2 class="text-center">Tratamiento</h2> <br>

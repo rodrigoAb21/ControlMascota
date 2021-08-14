@@ -23,11 +23,11 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Sintomas</label>
-                    <textarea class="form-control" name="sintomas" rows="5"></textarea>
+                    <textarea class="form-control" name="sintomas" rows="5" required></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Diagnostico</label>
-                    <textarea class="form-control" name="diagnostico" rows="5"></textarea>
+                    <textarea class="form-control" name="diagnostico" rows="5" required></textarea>
                 </div>
                 <hr>
                 <h2 class="text-center">Tratamiento</h2> <br>
