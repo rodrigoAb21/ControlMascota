@@ -44,6 +44,7 @@
         </style>
     @endpush
     <div class="row">
+        <h2>Historial de "{{$mascota->nombre}}"</h2><br>
         <div class="col-12">
             <div class="wrimagecard wrimagecard-topimage text-center">
                 <a href="{{url('mascotas/'.$mascota->id.'/consultas')}}">
@@ -91,5 +92,38 @@
         </div>
 
     </div>
+    @push('arriba')
+        <style>
+            *{padding:0;margin:0;}
+
+            .float{
+                position:fixed;
+                width:60px;
+                height:60px;
+                bottom:40px;
+                right:40px;
+                background-color: #FBC02D;
+                color: #ffffff;
+                border-radius:50px;
+                text-align:center;
+                box-shadow: 2px 2px 3px #999;
+            }
+
+            .my-float{
+                margin-top:14px;
+            }
+
+            a.float:hover{
+                visibility: visible;
+                opacity: 1;
+                color: #f0f0f0;
+            }
+
+        </style>
+    @endpush
+
+    <a href="{{url('mascotas')}}" class="float">
+        <i class="fa fa-arrow-left fa-2x my-float"></i>
+    </a>
 @endsection
 

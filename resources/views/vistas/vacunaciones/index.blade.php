@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('contenido')
-    <h2>Vacunaciones de "{{$mascota->nombre}}"</h2>
+    <h2><i class="fa fa-syringe"></i> Vacunaciones de "{{$mascota->nombre}}"</h2>
     @foreach($vacunaciones as $vacunacion)
         <div class="card mb-3 mx-auto bg-gradient" style="max-width: 600px; background-color: #19317b; border-radius: 10px;">
             <div class="card-body">

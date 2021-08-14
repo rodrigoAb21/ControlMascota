@@ -1,6 +1,6 @@
 @extends('layouts.index')
 @section('contenido')
-    <h2>Mis mascotas</h2>
+    <h2><i class="fa fa-paw"></i> Mis mascotas</h2>
     @foreach($mascotas as $mascota)
         <div class="card mb-3 mx-auto bg-gradient" style="max-width: 600px; background-color: #19317b; border-radius: 10px;">
             <div class="card-body">
