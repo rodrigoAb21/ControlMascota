@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Veterinaria;
+use App\Models\Veterinaria;
 use Illuminate\Http\Request;
 
 class VeterinariaController extends Controller

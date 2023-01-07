@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mascota;
-use App\Operacion;
+use App\Models\Mascota;
+use App\Models\Operacion;
 use Illuminate\Http\Request;
 
 class OperacionController extends Controller
@@ -35,7 +35,7 @@ class OperacionController extends Controller
 
     public function edit($mascota_id, $id)
     {
-        return view('vistas.operaciones.edit', 
+        return view('vistas.operaciones.edit',
             [
                 'operacion' => Operacion::findOrFail($id),
                 'mascota_id' => $mascota_id,

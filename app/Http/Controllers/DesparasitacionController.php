@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Desparasitacion;
-use App\Mascota;
+use App\Models\Desparasitacion;
+use App\Models\Mascota;
 use Illuminate\Http\Request;
 
 class DesparasitacionController extends Controller

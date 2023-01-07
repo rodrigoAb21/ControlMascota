@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,14 +12,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-if (env('APP_ENV') === 'production') {
-    URL::forceScheme('https');
-}
 
 Route::get('/', function () {
     return view('home');
 });
-
 
 /* -------------------------- CONSULTAS ----------------------------------*/
 Route::get('mascotas/{mascota_id}/consultas', 'ConsultaController@index');

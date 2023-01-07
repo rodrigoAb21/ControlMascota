@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mascota;
+use App\Models\Mascota;
 use Illuminate\Http\Request;
 
 class MascotaController extends Controller
@@ -45,7 +45,7 @@ class MascotaController extends Controller
         return view('vistas.mascotas.edit', [
             'mascota' => Mascota::findOrFail($id),
             'tipos' => $this->tipos
-            ]);
+        ]);
     }
 
     public function update(Request $request, $id)

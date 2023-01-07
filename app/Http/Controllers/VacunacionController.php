@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mascota;
-use App\Vacunacion;
+use App\Models\Mascota;
+use App\Models  \Vacunacion;
 use Illuminate\Http\Request;
 
 class VacunacionController extends Controller
@@ -40,7 +40,7 @@ class VacunacionController extends Controller
         return view('vistas.vacunaciones.edit', [
             'vacunacion' => Vacunacion::findOrFail($id),
             'mascota_id' => $mascota_id,
-            ]);
+        ]);
     }
 
     public function update($mascota_id, Request $request, $id)

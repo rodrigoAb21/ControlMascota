@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Consulta;
-use App\Mascota;
-use App\Tratamiento;
-use App\Veterinaria;
+use App\Models\Consulta;
+use App\Models\Mascota;
+use App\Models\Tratamiento;
+use App\Models\Veterinaria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
