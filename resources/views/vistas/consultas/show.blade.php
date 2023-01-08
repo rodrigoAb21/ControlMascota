@@ -9,11 +9,13 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Fecha de la consulta</label>
-            <input class="form-control" type="date" name="fecha_consulta" value="{{$consulta->fecha_consulta}}" readonly>
+            <input class="form-control" name="fecha_consulta" value="{{date_format(date_create($consulta->fecha_consulta), 'd-M-Y')}}" readonly>
+
         </div>
         <div class="mb-3">
             <label class="form-label">Fecha del control</label>
-            <input class="form-control" type="date" name="fecha_control" value="{{$consulta->fecha_control}}"  readonly>
+            <input class="form-control" name="fecha_control" value="{{date_format(date_create($consulta->fecha_control), 'd-M-Y')}}"  readonly>
+
         </div>
         <div class="mb-3">
             <label class="form-label">Sintomas</label>

@@ -9,8 +9,8 @@
                     </div>
                     <div class="col-10">
                         <h2 class="card-title" style="color: #91d5f1">Consulta #{{$consulta->id}}</h2>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-check me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $consulta->fecha_consulta)->format('d-m-Y')}}</span><br>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-times me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $consulta->fecha_control)->format('d-m-Y')}}</span><br>
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-check me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $consulta->fecha_consulta)->isoFormat('DD MMM YYYY')}}</span><br>
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-times me-1"></i> {{date_format(date_create($consulta->fecha_control), 'd-M-Y')}}</span><br>
                         <span class="card-text" style="color: #c7c7c7"><i class="fa fa-clinic-medical me-1"></i> {{$consulta->veterinaria->nombre}}</span><br>
 
                         <div class="text-end">
