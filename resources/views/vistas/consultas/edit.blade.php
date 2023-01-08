@@ -7,8 +7,8 @@
         {{csrf_field()}}
         {{method_field('PATCH')}}
         <div class="mb-3">
-            <label class="form-label">Veterinaria</label>
-            <select name="veterinaria_id" class="form-control">
+            <label class="form-label">Veterinaria*</label>
+            <select name="veterinaria_id" required class="form-control">
                 @foreach($veterinarias as $veterinaria)
                     @if($consulta->veterinaria_id == $veterinaria->id)
                         <option selected value="{{$veterinaria->id}}">{{$veterinaria->nombre}}</option>
@@ -19,20 +19,20 @@
             </select>
         </div>
         <div class="mb-3">
-            <label class="form-label">Fecha de la consulta</label>
+            <label class="form-label">Fecha de la consulta*</label>
             <input class="form-control" type="date" name="fecha_consulta" value="{{$consulta->fecha_consulta}}" required>
         </div>
         <div class="mb-3">
-            <label class="form-label">Fecha del control</label>
-            <input class="form-control" type="date" name="fecha_control" value="{{$consulta->fecha_control}}"  required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Sintomas</label>
+            <label class="form-label">Motivo de la consulta*</label>
             <textarea class="form-control" name="sintomas" required rows="5">{{$consulta->sintomas}}</textarea>
         </div>
         <div class="mb-3">
-            <label class="form-label">Diagnostico</label>
-            <textarea class="form-control" name="diagnostico" required rows="5">{{$consulta->diagnostico}}</textarea>
+            <label class="form-label">Diagnóstico</label>
+            <textarea class="form-control" name="diagnostico" rows="5">{{$consulta->diagnostico}}</textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Fecha del control</label>
+            <input class="form-control" type="date" name="fecha_control" value="{{$consulta->fecha_control}}" >
         </div>
         <hr>
         <h2 class="text-center">Tratamiento</h2> <br>
@@ -41,11 +41,11 @@
             <input type="text" class="form-control" id="txt_med">
         </div>
         <div class="mb-3">
-            <label class="form-label">Dosis</label>
+            <label class="form-label">Dosis diaria</label>
             <input type="text" class="form-control" id="txt_dosis">
         </div>
         <div class="mb-3">
-            <label class="form-label">Cantidad dias</label>
+            <label class="form-label">Cantidad de días</label>
             <input type="number" class="form-control" id="txt_cant">
         </div>
         <div class="d-grid gap-2 mb-3">
@@ -63,15 +63,15 @@
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label class="form-label">Medicamento</label>
+                                <label class="form-label">Medicamento*</label>
                                 <input type="text" class="form-control" name="medicamentoT[]" value="{{$tratamiento->medicamento}}">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Dosis</label>
+                                <label class="form-label">Dosis diaria*</label>
                                 <input type="text" class="form-control" name="dosisT[]" value="{{$tratamiento->dosis}}">
                             </div>
                             <div class="mb-3">
-                                <label class="form-label">Cantidad dias</label>
+                                <label class="form-label">Cantidad de días*</label>
                                 <input type="number" class="form-control" name="cantidad_diasT[]" value="{{$tratamiento->cantidad_dias}}">
                             </div>
                         </div>
@@ -80,7 +80,7 @@
             @endforeach
         </div>
 
-        <a href="{{url('mascotas/'.$mascota_id.'/consultas')}}" class="btn btn-warning">Atras</a>
+        <a href="{{url('mascotas/'.$mascota_id.'/consultas')}}" class="btn btn-warning">Atrás</a>
         <button type="submit"  id="btn_guardar" class="btn btn-primary">Guardar</button>
     </form>
     <div class="mb-3"></div>
@@ -112,11 +112,11 @@
                     '<input type="text" class="form-control" name="medicamentoT[]" value="'+medicamento+'">' +
                     '</div>' +
                     '<div class="mb-3">' +
-                    '<label class="form-label">Dosis</label>' +
+                    '<label class="form-label">Dosis diaria</label>' +
                     '<input type="text" class="form-control" name="dosisT[]" value="'+dosis+'">' +
                     '</div>' +
                     '<div class="mb-3">' +
-                    '<label class="form-label">Cantidad dias</label>' +
+                    '<label class="form-label">Cantidad de días</label>' +
                     '<input type="number" class="form-control" name="cantidad_diasT[]" value="'+cantidad+'">' +
                     '</div>' +
                     '</div>' +

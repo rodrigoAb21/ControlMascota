@@ -12,7 +12,7 @@
 
                         <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-check me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->fecha_vacuna)->isoFormat('DD MMMM YYYY')}}</span><br>
                         <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-times me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->fecha_validez)->isoFormat('DD MMMM YYYY')}}</span><br>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-comment-alt me-1"></i> {{$vacunacion->detalle}}</span><br>
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-vial me-1"></i> {{$vacunacion->detalle}}</span><br>
 
                         <div class="text-end">
                             <a href="{{url('mascotas/'.$mascota->id.'/vacunaciones/'.$vacunacion->id.'/edit')}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>

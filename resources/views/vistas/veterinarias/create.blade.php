@@ -6,15 +6,15 @@
             <form method="POST" action="{{url('veterinarias')}}" autocomplete="off">
                 {{csrf_field()}}
                 <div class="mb-3">
-                    <label class="form-label">Nombre</label>
+                    <label class="form-label">Nombre*</label>
                     <input type="text" class="form-control" name="nombre" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Direccion</label>
+                    <label class="form-label">Dirección</label>
                     <textarea class="form-control" name="direccion" cols="30" rows="3"></textarea>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Telefono</label>
+                    <label class="form-label">Teléfono</label>
                     <input class="form-control" type="number" max="79999999" name="telefono1">
                 </div>
                 <div class="mb-3">

@@ -1,24 +1,24 @@
 @extends('layouts.index')
 @section('contenido')
             <h3 class="pb-2">
-                Nueva desparasitacion
+                Nueva desparasitación
             </h3>
             <form method="POST" action="{{url('mascotas/'.$mascota_id.'/desparasitaciones')}}" autocomplete="off">
                 {{csrf_field()}}
                 <div class="mb-3">
                     <label class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="nombre" required>
+                    <input type="text" class="form-control" name="nombre">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Fecha Vacuna</label>
-                    <input class="form-control" type="date" name="fecha_vacuna" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required>
+                    <label class="form-label">Fecha de desparasitación*</label>
+                    <input class="form-control" type="date" name="fecha_vacuna" value="{{date('Y-m-d')}}" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Fecha Validez</label>
-                    <input class="form-control" type="date" name="fecha_validez" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required>
+                    <label class="form-label">Próxima desparasitación</label>
+                    <input class="form-control" type="date" name="fecha_validez" value="{{date('Y-m-d')}}">
                 </div>
 
-                <a href="{{url('mascotas/'.$mascota_id.'/desparasitaciones')}}" class="btn btn-warning">Atras</a>
+                <a href="{{url('mascotas/'.$mascota_id.'/desparasitaciones')}}" class="btn btn-warning">Atrás</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
 @endsection

@@ -6,15 +6,15 @@
             <form method="POST" action="{{url('mascotas')}}" autocomplete="off">
                 {{csrf_field()}}
                 <div class="mb-3">
-                    <label class="form-label">Nombre</label>
+                    <label class="form-label">Nombre*</label>
                     <input type="text" class="form-control" name="nombre" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Nacimiento</label>
-                    <input type="date" class="form-control" name="fecha_nac" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}">
+                    <label class="form-label">Fecha de nacimiento*</label>
+                    <input type="date" class="form-control" name="fecha_nac" value="{{date('Y-m-d')}}" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Tipo</label>
+                    <label class="form-label">Tipo*</label>
                     <select class="form-control" name="tipo" required>
                         @foreach($tipos as $tipo)
                             <option value="{{$tipo}}">{{$tipo}}</option>
@@ -22,7 +22,7 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Sexo</label>
+                    <label class="form-label">Sexo*</label>
                     <br>
                     <div class="form-check form-check-inline">
                        <input class="form-check-input" type="radio" name="sexo" value="Macho" checked>

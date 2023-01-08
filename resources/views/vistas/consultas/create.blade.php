@@ -6,41 +6,41 @@
             <form method="POST" action="{{url('mascotas/'.$mascota_id.'/consultas')}}" autocomplete="off">
                 {{csrf_field()}}
                 <div class="mb-3">
-                    <label class="form-label">Veterinaria</label>
-                    <select name="veterinaria_id" class="form-control">
+                    <label class="form-label">Veterinaria*</label>
+                    <select name="veterinaria_id" class="form-control" required>
                         @foreach($veterinarias as $veterinaria)
                             <option value="{{$veterinaria->id}}">{{$veterinaria->nombre}}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Fecha de la consulta</label>
-                    <input class="form-control" type="date" name="fecha_consulta" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required>
+                    <label class="form-label">Fecha de la consulta*</label>
+                    <input class="form-control" type="date" name="fecha_consulta" value="{{date('Y-m-d')}}" required>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Fecha del control</label>
-                    <input class="form-control" type="date" name="fecha_control" value="{{\Carbon\Carbon::now('America/La_Paz')->toDateString()}}" required>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Sintomas</label>
+                    <label class="form-label">Motivo de la consulta*</label>
                     <textarea class="form-control" name="sintomas" rows="5" required></textarea>
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Diagnostico</label>
-                    <textarea class="form-control" name="diagnostico" rows="5" required></textarea>
+                    <label class="form-label">Diagnóstico</label>
+                    <textarea class="form-control" name="diagnostico" rows="5"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Fecha del control</label>
+                    <input class="form-control" type="date" name="fecha_control" value="{{date('Y-m-d')}}">
                 </div>
                 <hr>
                 <h2 class="text-center">Tratamiento</h2> <br>
                 <div class="mb-3">
-                    <label class="form-label">Medicamento</label>
+                    <label class="form-label">Medicamento*</label>
                     <input type="text" class="form-control" id="txt_med">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Dosis</label>
+                    <label class="form-label">Dosis diaria*</label>
                     <input type="text" class="form-control" id="txt_dosis">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Cantidad dias</label>
+                    <label class="form-label">Cantidad de días*</label>
                     <input type="number" class="form-control" id="txt_cant">
                 </div>
                 <div class="d-grid gap-2 mb-3">
@@ -82,11 +82,11 @@
                             '<input type="text" class="form-control" name="medicamentoT[]" value="'+medicamento+'">' +
                         '</div>' +
                         '<div class="mb-3">' +
-                            '<label class="form-label">Dosis</label>' +
+                            '<label class="form-label">Dosis diaria</label>' +
                             '<input type="text" class="form-control" name="dosisT[]" value="'+dosis+'">' +
                         '</div>' +
                         '<div class="mb-3">' +
-                            '<label class="form-label">Cantidad dias</label>' +
+                            '<label class="form-label">Cantidad de días</label>' +
                             '<input type="number" class="form-control" name="cantidad_diasT[]" value="'+cantidad+'">' +
                         '</div>' +
                     '</div>' +

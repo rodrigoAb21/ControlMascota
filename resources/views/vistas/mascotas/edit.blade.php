@@ -7,15 +7,15 @@
         {{csrf_field()}}
         {{method_field('PATCH')}}
         <div class="mb-3">
-            <label class="form-label">Nombre</label>
+            <label class="form-label">Nombre*</label>
             <input type="text" class="form-control" name="nombre" value="{{$mascota->nombre}}" required>
         </div>
         <div class="mb-3">
-            <label class="form-label">Nacimiento</label>
-            <input type="date" class="form-control" name="fecha_nac" value="{{$mascota->fecha_nac}}">
+            <label class="form-label">Fecha de nacimiento*</label>
+            <input type="date" class="form-control" name="fecha_nac" value="{{$mascota->fecha_nac}}" required>
         </div>
         <div class="mb-3">
-            <label class="form-label">Tipo</label>
+            <label class="form-label">Tipo*</label>
             <select class="form-control" name="tipo" required>
                 @foreach($tipos as $tipo)
                     @if($mascota->tipo == $tipo)
@@ -28,7 +28,7 @@
             </select>
         </div>
         <div class="mb-3">
-            <label class="form-label">Sexo</label>
+            <label class="form-label">Sexo*</label>
             <br>
             @if($mascota->sexo == 'Macho')
                 <div class="form-check form-check-inline">
