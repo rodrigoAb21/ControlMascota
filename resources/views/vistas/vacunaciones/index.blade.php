@@ -9,8 +9,9 @@
                     </div>
                     <div class="col-10">
                         <h2 class="card-title" style="color: #91d5f1">{{$vacunacion->nombre}}</h2>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-check me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->fecha_vacuna)->format('d-m-Y')}}</span><br>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-times me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->fecha_validez)->format('d-m-Y')}}</span><br>
+
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-check me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->fecha_vacuna)->isoFormat('DD MMMM YYYY')}}</span><br>
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-times me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->fecha_validez)->isoFormat('DD MMMM YYYY')}}</span><br>
                         <span class="card-text" style="color: #c7c7c7"><i class="fa fa-comment-alt me-1"></i> {{$vacunacion->detalle}}</span><br>
 
                         <div class="text-end">

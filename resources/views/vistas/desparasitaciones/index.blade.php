@@ -9,12 +9,35 @@
                     </div>
                     <div class="col-10">
                         <h2 class="card-title" style="color: #91d5f1">{{$desparasitacion->nombre}}</h2>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-check me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->fecha_vacuna)->format('d-m-Y')}}</span><br>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-times me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->fecha_validez)->format('d-m-Y')}}</span><br>
-
+                        <span class="card-text" style="color: #c7c7c7">
+                            <i class="fa fa-calendar-check me-1"></i>
+                            {{
+                                Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->fecha_vacuna)
+                                    ->isoFormat('DD MMMM YYYY')
+                            }}
+                        </span>
+                        <br>
+                        <span class="card-text" style="color: #c7c7c7">
+                            <i class="fa fa-calendar-times me-1"></i>
+                            {{
+                                Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->fecha_validez)
+                                    ->isoFormat('DD MMMM YYYY')
+                            }}
+                        </span>
+                        <br>
                         <div class="text-end">
-                            <a href="{{url('mascotas/'.$mascota->id.'/desparasitaciones/'.$desparasitacion->id.'/edit')}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
-                            <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$desparasitacion -> nombre}}', '{{url('mascotas/'.$mascota->id.'/desparasitaciones/'.$desparasitacion -> id)}}')">
+                            <a
+                                href="{{url('mascotas/'.$mascota->id.'/desparasitaciones/'.$desparasitacion->id.'/edit')}}"
+                                class="btn btn-warning">
+                                <i class="fa fa-pen"></i>
+                            </a>
+                            <button
+                                type="button"
+                                class="btn btn-danger"
+                                onclick="modalEliminar(
+                                    '{{$desparasitacion -> nombre}}',
+                                    '{{url('mascotas/'.$mascota->id.'/desparasitaciones/'.$desparasitacion -> id)}}'
+                                    )">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </div>

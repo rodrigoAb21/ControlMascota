@@ -2,21 +2,25 @@
 @section('contenido')
     <h2><i class="fa fa-stethoscope"></i> Consultas de "{{$mascota->nombre}}"</h2>
     @foreach($consultas as $consulta)
-        <div class="card mb-3 mx-auto bg-gradient" style="max-width: 600px; background-color: #19317b; border-radius: 10px;">
+        <div class="card mb-3 mx-auto bg-gradient"
+             style="max-width: 600px; background-color: #19317b; border-radius: 10px;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-2">
                     </div>
                     <div class="col-10">
                         <h2 class="card-title" style="color: #91d5f1">Consulta #{{$consulta->id}}</h2>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-check me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $consulta->fecha_consulta)->isoFormat('DD MMM YYYY')}}</span><br>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-times me-1"></i> {{date_format(date_create($consulta->fecha_control), 'd-M-Y')}}</span><br>
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-check me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $consulta->fecha_consulta)->isoFormat('DD MMMM YYYY')}}</span><br>
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-times me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $consulta->fecha_control)->isoFormat('DD MMMM YYYY')}}</span><br>
                         <span class="card-text" style="color: #c7c7c7"><i class="fa fa-clinic-medical me-1"></i> {{$consulta->veterinaria->nombre}}</span><br>
 
                         <div class="text-end">
-                            <a href="{{url('mascotas/'.$mascota->id.'/consultas/'.$consulta->id)}}" class="btn btn-light"><i class="fa fa-eye"></i></a>
-                            <a href="{{url('mascotas/'.$mascota->id.'/consultas/'.$consulta->id.'/edit')}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
-                            <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$consulta -> nombre}}', '{{url('mascotas/'.$mascota->id.'/consultas/'.$consulta -> id)}}')">
+                            <a href="{{url('mascotas/'.$mascota->id.'/consultas/'.$consulta->id)}}"
+                               class="btn btn-light"><i class="fa fa-eye"></i></a>
+                            <a href="{{url('mascotas/'.$mascota->id.'/consultas/'.$consulta->id.'/edit')}}"
+                               class="btn btn-warning"><i class="fa fa-pen"></i></a>
+                            <button type="button" class="btn btn-danger"
+                                    onclick="modalEliminar('{{$consulta -> nombre}}', '{{url('mascotas/'.$mascota->id.'/consultas/'.$consulta -> id)}}')">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </div>
@@ -28,48 +32,52 @@
     <div style="margin-bottom: 200px"></div>
     @push('arriba')
         <style>
-            *{padding:0;margin:0;}
+            * {
+                padding: 0;
+                margin: 0;
+            }
 
-            .float{
-                position:fixed;
-                width:60px;
-                height:60px;
-                bottom:40px;
-                right:40px;
+            .float {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                bottom: 40px;
+                right: 40px;
                 background-color: #FBC02D;
                 color: #ffffff;
-                border-radius:50px;
-                text-align:center;
+                border-radius: 50px;
+                text-align: center;
                 box-shadow: 2px 2px 3px #999;
             }
 
-            .my-float{
-                margin-top:14px;
+            .my-float {
+                margin-top: 14px;
             }
 
-            a.float:hover{
+            a.float:hover {
                 visibility: visible;
                 opacity: 1;
                 color: #f0f0f0;
             }
-            .float2{
-                position:fixed;
-                width:60px;
-                height:60px;
-                bottom:110px;
-                right:40px;
+
+            .float2 {
+                position: fixed;
+                width: 60px;
+                height: 60px;
+                bottom: 110px;
+                right: 40px;
                 background-color: #0085cc;
-                color:#FFF;
-                border-radius:50px;
-                text-align:center;
+                color: #FFF;
+                border-radius: 50px;
+                text-align: center;
                 box-shadow: 2px 2px 3px #999;
             }
 
-            .my-float2{
-                margin-top:14px;
+            .my-float2 {
+                margin-top: 14px;
             }
 
-            a.float2:hover{
+            a.float2:hover {
                 visibility: visible;
                 opacity: 1;
                 color: #f0f0f0;

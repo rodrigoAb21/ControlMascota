@@ -9,12 +9,12 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Fecha de la consulta</label>
-            <input class="form-control" name="fecha_consulta" value="{{date_format(date_create($consulta->fecha_consulta), 'd-M-Y')}}" readonly>
+            <input class="form-control" name="fecha_consulta" value="{{Carbon\Carbon::createFromFormat('Y-m-d', $consulta->fecha_consulta)->isoFormat('DD MMMM YYYY')}}" readonly>
 
         </div>
         <div class="mb-3">
             <label class="form-label">Fecha del control</label>
-            <input class="form-control" name="fecha_control" value="{{date_format(date_create($consulta->fecha_control), 'd-M-Y')}}"  readonly>
+            <input class="form-control" name="fecha_control" value="{{Carbon\Carbon::createFromFormat('Y-m-d', $consulta->fecha_control)->isoFormat('DD MMMM YYYY')}}"  readonly>
 
         </div>
         <div class="mb-3">
