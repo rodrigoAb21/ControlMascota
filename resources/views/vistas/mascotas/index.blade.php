@@ -10,7 +10,7 @@
                     <div class="col-10">
                         <h2 class="card-title" style="color: #91d5f1">{{$mascota->nombre}}</h2>
                         <span class="card-text" style="color: #c7c7c7"><i class="fa fa-paw me-1"></i> {{$mascota->tipo}}</span><br>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-birthday-cake me-1"></i> {{$mascota->fecha_nac}}</span><br>
+                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-birthday-cake me-1"></i> {{date_format(date_create($mascota->fecha_nac), 'd-M-Y')}}</span><br>
                         <span class="card-text" style="color: #c7c7c7"><i class="fas fa-venus-mars me-1"></i> {{$mascota->sexo}}</span><br>
 
                         <div class="text-end">

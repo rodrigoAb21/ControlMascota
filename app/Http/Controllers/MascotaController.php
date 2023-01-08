@@ -14,6 +14,7 @@ class MascotaController extends Controller
 
     public function index()
     {
+        setlocale(LC_ALL, 'es_ES');
         return view('vistas.mascotas.index', ['mascotas' => Mascota::orderBy('id', 'asc')->get()]);
     }
 

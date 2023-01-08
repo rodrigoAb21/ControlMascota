@@ -25,6 +25,6 @@ class Consulta extends Model
     }
 
     public function veterinaria(){
-        return $this->belongsTo('App\Veterinaria', 'veterinaria_id', 'id');
+        return $this->belongsTo('App\Models\Veterinaria', 'veterinaria_id', 'id');
     }
 }
