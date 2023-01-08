@@ -44,7 +44,7 @@
         </style>
     @endpush
     <div class="row">
-        <h2>Historial de "{{$mascota->nombre}}"</h2><br>
+        <h2>Registro de "{{$mascota->nombre}}"</h2><br>
         <div class="col-12">
             <div class="wrimagecard wrimagecard-topimage text-center">
                 <a href="{{url('mascotas/'.$mascota->id.'/consultas')}}">
