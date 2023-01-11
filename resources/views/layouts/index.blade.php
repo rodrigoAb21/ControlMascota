@@ -10,7 +10,7 @@
     <link href="{{asset('plugins/fontawesome/css/all.min.css')}}" rel="stylesheet">
     <link href="{{asset('plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('icon.png')}}"/>
-    <title>Control Mascota</title>
+    <title>Control Veterinario</title>
 
     @stack('arriba')
 </head>
@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="{{url('/')}}">
             <img src="{{asset('icon.png')}}" alt="" width="30" height="24" class="d-inline-block align-text-top">
-            Control Mascota
+            Control Veterinario
         </a>
     </div>
 </nav>
