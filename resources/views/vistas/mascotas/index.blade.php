@@ -1,22 +1,34 @@
 @extends('layouts.index')
 @section('contenido')
-    <h2><i class="fa fa-paw"></i> Mis mascotas</h2>
+    <h2><i class="fa fa-paw"></i> Mascotas</h2>
     @foreach($mascotas as $mascota)
         <div class="card mb-3 mx-auto bg-gradient" style="max-width: 600px; background-color: #19317b; border-radius: 10px;">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-1">
                     </div>
-                    <div class="col-10">
+                    <div class="col-11">
                         <h2 class="card-title" style="color: #91d5f1">{{$mascota->nombre}}</h2>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-paw me-1"></i> {{$mascota->tipo}}</span><br>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fa fa-birthday-cake me-1"></i>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-paw me-1"></i> {{$mascota->tipo}}</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-birthday-cake me-1"></i>
                          {{
                             Carbon\Carbon::createFromFormat('Y-m-d', $mascota->fecha_nac)
                                 ->isoFormat('DD MMMM YYYY')
                          }}
-                        </span><br>
-                        <span class="card-text" style="color: #c7c7c7"><i class="fas fa-venus-mars me-1"></i> {{$mascota->sexo}}</span><br>
+                        </span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7"><i class="fas fa-venus-mars me-1"></i> {{$mascota->sexo}}</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7"><i class="fas fa-dna me-1"></i> {{$mascota->raza}}</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7"><i class="fas fa-palette me-1"></i> {{$mascota->color}}</span>
+                        </div>
 
                         <div class="text-end">
                             <a href="{{url('mascotas/'.$mascota->id)}}" class="btn btn-light"><i class="fa fa-eye"></i></a>

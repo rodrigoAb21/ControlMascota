@@ -30,6 +30,8 @@ class MascotaController extends Controller
         $mascota->fecha_nac = $request['fecha_nac'];
         $mascota->tipo = $request['tipo'];
         $mascota->sexo = $request['sexo'];
+        $mascota->raza = $request['raza'];
+        $mascota->color = $request['color'];
         $mascota->save();
 
         return redirect('mascotas');
@@ -56,6 +58,8 @@ class MascotaController extends Controller
         $mascota->fecha_nac = $request['fecha_nac'];
         $mascota->tipo = $request['tipo'];
         $mascota->sexo = $request['sexo'];
+        $mascota->raza = $request['raza'];
+        $mascota->color = $request['color'];
         $mascota->update();
 
         return redirect('mascotas');

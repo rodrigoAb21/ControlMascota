@@ -53,7 +53,7 @@
 
                 </div>
 
-                <a href="{{url('mascotas/'.$mascota_id.'/consultas')}}" class="btn btn-warning">Atras</a>
+                <a href="{{url('mascotas/'.$mascota_id.'/consultas')}}" class="btn btn-warning">Atrás</a>
                 <button type="submit"  id="btn_guardar" class="btn btn-primary">Guardar</button>
             </form>
     <div class="mb-3"></div>

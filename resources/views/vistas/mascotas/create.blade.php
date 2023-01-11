@@ -25,19 +25,29 @@
                     <label class="form-label">Sexo*</label>
                     <br>
                     <div class="form-check form-check-inline">
-                       <input class="form-check-input" type="radio" name="sexo" value="Macho" checked>
-                       <label class="form-check-label" for="flexRadioDefault1">
+                       <input id="r1" class="form-check-input" type="radio" name="sexo" value="Macho" checked>
+                       <label class="form-check-label" for="r1">
                            Macho
                        </label>
                    </div>
                     <div class="form-check form-check-inline">
-                       <input class="form-check-input" type="radio" name="sexo" value="Hembra">
-                       <label class="form-check-label" for="flexRadioDefault2">
+                       <input id="r2" class="form-check-input" type="radio" name="sexo" value="Hembra">
+                       <label class="form-check-label" for="r2">
                            Hembra
                        </label>
                    </div>
                </div>
-                <a href="{{url('mascotas')}}" class="btn btn-warning">Atras</a>
+
+                <div class="mb-3">
+                    <label class="form-label">Raza</label>
+                    <input type="text" class="form-control" name="raza">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Color</label>
+                    <input type="text" class="form-control" name="color">
+                </div>
+                <a href="{{url('mascotas')}}" class="btn btn-warning">Atrás</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
 @endsection

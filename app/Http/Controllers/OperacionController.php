@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mascota;
 use App\Models\Operacion;
+use App\Models\Veterinaria;
 use Illuminate\Http\Request;
 
 class OperacionController extends Controller
@@ -19,7 +20,11 @@ class OperacionController extends Controller
 
     public function create($mascota_id)
     {
-        return view('vistas.operaciones.create', ['mascota_id' => $mascota_id]);
+        return view('vistas.operaciones.create',
+            [
+                'mascota_id' => $mascota_id,
+                'veterinarias' => Veterinaria::all(),
+            ]);
     }
 
     public function store($mascota_id, Request $request)
@@ -28,6 +33,7 @@ class OperacionController extends Controller
         $operacion->descripcion = $request['descripcion'];
         $operacion->fecha = $request['fecha'];
         $operacion->mascota_id = $mascota_id;
+        $operacion->veterinaria_id = $request['veterinaria_id'];
         $operacion->save();
 
         return redirect('mascotas/'.$mascota_id.'/operaciones');
@@ -39,6 +45,7 @@ class OperacionController extends Controller
             [
                 'operacion' => Operacion::findOrFail($id),
                 'mascota_id' => $mascota_id,
+                'veterinarias' => Veterinaria::all(),
             ]);
     }
 
@@ -47,6 +54,7 @@ class OperacionController extends Controller
         $operacion = Operacion::findOrFail($id);
         $operacion->descripcion = $request['descripcion'];
         $operacion->fecha = $request['fecha'];
+        $operacion->veterinaria_id = $request['veterinaria_id'];
         $operacion->update();
 
         return redirect('mascotas/'.$mascota_id.'/operaciones');

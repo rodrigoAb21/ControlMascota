@@ -23,6 +23,10 @@ class CreateVacunacionTable extends Migration
             $table->unsignedBigInteger('mascota_id');
             $table->foreign('mascota_id')->references('id')
                 ->on('mascota')->onDelete('cascade');
+
+            $table->unsignedBigInteger('veterinaria_id');
+            $table->foreign('veterinaria_id')->references('id')
+                ->on('veterinaria')->onDelete('cascade');
         });
     }
 

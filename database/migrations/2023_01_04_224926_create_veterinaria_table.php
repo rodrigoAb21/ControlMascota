@@ -19,6 +19,7 @@ class CreateVeterinariaTable extends Migration
             $table->string('direccion')->nullable();
             $table->string('telefono1')->nullable();
             $table->string('telefono2')->nullable();
+            $table->string('horas')->nullable();
             $table->double('latitud')->nullable();
             $table->double('longitud')->nullable();
         });

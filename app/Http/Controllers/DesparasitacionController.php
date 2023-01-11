@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Desparasitacion;
 use App\Models\Mascota;
+use App\Models\Veterinaria;
 use Illuminate\Http\Request;
 
 class DesparasitacionController extends Controller
@@ -19,7 +20,12 @@ class DesparasitacionController extends Controller
 
     public function create($mascota_id)
     {
-        return view('vistas.desparasitaciones.create',['mascota_id' => $mascota_id]);
+
+        return view('vistas.desparasitaciones.create',
+            [
+                'mascota_id' => $mascota_id,
+                'veterinarias' => Veterinaria::all(),
+            ]);
     }
 
     public function store($mascota_id, Request $request)
@@ -29,6 +35,7 @@ class DesparasitacionController extends Controller
         $desparasitacion->fecha_vacuna = $request['fecha_vacuna'];
         $desparasitacion->fecha_validez = $request['fecha_validez'];
         $desparasitacion->mascota_id = $mascota_id;
+        $desparasitacion->veterinaria_id = $request['veterinaria_id'];
         $desparasitacion->save();
 
         return redirect('mascotas/'.$mascota_id.'/desparasitaciones');
@@ -40,6 +47,7 @@ class DesparasitacionController extends Controller
             [
                 'desparasitacion' => Desparasitacion::findOrFail($id),
                 'mascota_id' => $mascota_id,
+                'veterinarias' => Veterinaria::all(),
             ]);
     }
 
@@ -49,6 +57,7 @@ class DesparasitacionController extends Controller
         $desparasitacion->nombre = $request['nombre'];
         $desparasitacion->fecha_vacuna = $request['fecha_vacuna'];
         $desparasitacion->fecha_validez = $request['fecha_validez'];
+        $desparasitacion->veterinaria_id = $request['veterinaria_id'];
         $desparasitacion->update();
 
         return redirect('mascotas/'.$mascota_id.'/desparasitaciones');

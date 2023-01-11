@@ -16,5 +16,10 @@ class Operacion extends Model
         'descripcion',
         'fecha',
         'mascota_id',
+        'veterinaria_id',
     ];
+
+    public function veterinaria(){
+        return $this->belongsTo('App\Models\Veterinaria', 'veterinaria_id', 'id');
+    }
 }

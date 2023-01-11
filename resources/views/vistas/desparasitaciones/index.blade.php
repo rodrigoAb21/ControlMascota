@@ -5,26 +5,28 @@
         <div class="card mb-3 mx-auto bg-gradient" style="max-width: 600px; background-color: #19317b; border-radius: 10px;">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-1">
                     </div>
-                    <div class="col-10">
+                    <div class="col-11">
                         <h2 class="card-title" style="color: #91d5f1">{{$desparasitacion->nombre}}</h2>
-                        <span class="card-text" style="color: #c7c7c7">
-                            <i class="fa fa-calendar-check me-1"></i>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-clinic-medical me-1"></i> Vet. {{$desparasitacion->veterinaria->nombre}}</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7">
+                            <i class="fa fa-calendar-day me-1"></i>
                             {{
                                 Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->fecha_vacuna)
                                     ->isoFormat('DD MMMM YYYY')
                             }}
-                        </span>
-                        <br>
-                        <span class="card-text" style="color: #c7c7c7">
-                            <i class="fa fa-calendar-times me-1"></i>
+                                ---
                             {{
                                 Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->fecha_validez)
                                     ->isoFormat('DD MMMM YYYY')
                             }}
                         </span>
-                        <br>
+
+                        </div>
                         <div class="text-end">
                             <a
                                 href="{{url('mascotas/'.$mascota->id.'/desparasitaciones/'.$desparasitacion->id.'/edit')}}"

@@ -18,5 +18,10 @@ class Vacunacion extends Model
         'fecha_validez',
         'detalle',
         'mascota_id',
+        'veterinaria_id',
     ];
+
+    public function veterinaria(){
+        return $this->belongsTo('App\Models\Veterinaria', 'veterinaria_id', 'id');
+    }
 }

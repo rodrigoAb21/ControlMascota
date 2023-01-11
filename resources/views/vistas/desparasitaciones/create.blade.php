@@ -6,6 +6,14 @@
             <form method="POST" action="{{url('mascotas/'.$mascota_id.'/desparasitaciones')}}" autocomplete="off">
                 {{csrf_field()}}
                 <div class="mb-3">
+                    <label class="form-label">Veterinaria*</label>
+                    <select name="veterinaria_id" class="form-control" required>
+                        @foreach($veterinarias as $veterinaria)
+                            <option value="{{$veterinaria->id}}">{{$veterinaria->nombre}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Nombre</label>
                     <input type="text" class="form-control" name="nombre">
                 </div>

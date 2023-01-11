@@ -28,6 +28,7 @@ class VeterinariaController extends Controller
         $veterinaria->direccion = $request['direccion'];
         $veterinaria->telefono1 = $request['telefono1'];
         $veterinaria->telefono2 = $request['telefono2'];
+        $veterinaria->horas = $request['horas'];
         $veterinaria->latitud = $request['latitud'];
         $veterinaria->longitud = $request['longitud'];
         $veterinaria->save();
@@ -52,6 +53,7 @@ class VeterinariaController extends Controller
         $veterinaria->direccion = $request['direccion'];
         $veterinaria->telefono1 = $request['telefono1'];
         $veterinaria->telefono2 = $request['telefono2'];
+        $veterinaria->horas = $request['horas'];
         $veterinaria->latitud = $request['latitud'];
         $veterinaria->longitud = $request['longitud'];
         $veterinaria->update();

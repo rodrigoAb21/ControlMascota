@@ -7,6 +7,18 @@
         {{csrf_field()}}
         {{method_field('PATCH')}}
         <div class="mb-3">
+            <label class="form-label">Veterinaria*</label>
+            <select name="veterinaria_id" required class="form-control">
+                @foreach($veterinarias as $veterinaria)
+                    @if($desparasitacion->veterinaria_id == $veterinaria->id)
+                        <option selected value="{{$veterinaria->id}}">{{$veterinaria->nombre}}</option>
+                    @else
+                        <option value="{{$veterinaria->id}}">{{$veterinaria->nombre}}</option>
+                    @endif
+                @endforeach
+            </select>
+        </div>
+        <div class="mb-3">
             <label class="form-label">Nombre</label>
             <input type="text" class="form-control" name="nombre" value="{{$desparasitacion->nombre}}">
         </div>

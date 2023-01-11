@@ -17,6 +17,7 @@ class Veterinaria extends Model
         'direccion',
         'telefono1',
         'telefono2',
+        'horas',
         'latitud',
         'longitud',
     ];

@@ -17,5 +17,10 @@ class Desparasitacion extends Model
         'fecha_vacuna',
         'fecha_validez',
         'mascota_id',
+        'veterinaria_id',
     ];
+
+    public function veterinaria(){
+        return $this->belongsTo('App\Models\Veterinaria', 'veterinaria_id', 'id');
+    }
 }

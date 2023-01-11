@@ -17,5 +17,7 @@ class Mascota extends Model
         'fecha_nac',
         'tipo',
         'sexo',
+        'color',
+        'raza',
     ];
 }
