@@ -14,6 +14,7 @@ class Desparasitacion extends Model
     public $timestamps = false;
     protected $fillable = [
         'nombre',
+        'peso',
         'fecha_vacuna',
         'fecha_validez',
         'mascota_id',

@@ -17,6 +17,7 @@ class CreateDesparasitacionTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre')->nullable();
             $table->date('fecha_vacuna');
+            $table->float('peso');
             $table->date('fecha_validez')->nullable();
 
             $table->unsignedBigInteger('mascota_id');

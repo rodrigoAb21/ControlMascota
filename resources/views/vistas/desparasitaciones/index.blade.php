@@ -10,6 +10,9 @@
                     <div class="col-11">
                         <h2 class="card-title" style="color: #91d5f1">{{$desparasitacion->nombre}}</h2>
                         <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-weight me-1"></i> {{$desparasitacion->peso}} kg</span>
+                        </div>
+                        <div class="mb-2">
                             <span class="card-text" style="color: #c7c7c7"><i class="fa fa-clinic-medical me-1"></i> Vet. {{$desparasitacion->veterinaria->nombre}}</span>
                         </div>
                         <div class="mb-2">
