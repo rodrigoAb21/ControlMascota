@@ -33,8 +33,8 @@ class DesparasitacionController extends Controller
         $desparasitacion = new Desparasitacion();
         $desparasitacion->nombre = $request['nombre'];
         $desparasitacion->peso = $request['peso'];
-        $desparasitacion->fecha_vacuna = $request['fecha_vacuna'];
-        $desparasitacion->fecha_validez = $request['fecha_validez'];
+        $desparasitacion->fecha_desparasitacion = $request['fecha_desparasitacion'];
+        $desparasitacion->proxima_desparasitacion = $request['proxima_desparasitacion'];
         $desparasitacion->mascota_id = $mascota_id;
         $desparasitacion->veterinaria_id = $request['veterinaria_id'];
         $desparasitacion->save();
@@ -57,8 +57,8 @@ class DesparasitacionController extends Controller
         $desparasitacion = Desparasitacion::findOrFail($id);
         $desparasitacion->nombre = $request['nombre'];
         $desparasitacion->peso = $request['peso'];
-        $desparasitacion->fecha_vacuna = $request['fecha_vacuna'];
-        $desparasitacion->fecha_validez = $request['fecha_validez'];
+        $desparasitacion->fecha_desparasitacion = $request['fecha_desparasitacion'];
+        $desparasitacion->proxima_desparasitacion = $request['proxima_desparasitacion'];
         $desparasitacion->veterinaria_id = $request['veterinaria_id'];
         $desparasitacion->update();
 

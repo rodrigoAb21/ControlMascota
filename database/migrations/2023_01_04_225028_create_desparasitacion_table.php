@@ -16,9 +16,9 @@ class CreateDesparasitacionTable extends Migration
         Schema::create('desparasitacion', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre')->nullable();
-            $table->date('fecha_vacuna');
+            $table->date('fecha_desparasitacion');
             $table->float('peso');
-            $table->date('fecha_validez')->nullable();
+            $table->date('proxima_desparasitacion')->nullable();
 
             $table->unsignedBigInteger('mascota_id');
             $table->foreign('mascota_id')->references('id')

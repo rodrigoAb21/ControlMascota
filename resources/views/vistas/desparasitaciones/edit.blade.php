@@ -28,11 +28,11 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Fecha de desparasitación*</label>
-            <input class="form-control" type="date" name="fecha_vacuna" value="{{$desparasitacion->fecha_vacuna}}" required>
+            <input class="form-control" type="date" name="fecha_desparasitacion" value="{{$desparasitacion->fecha_desparasitacion}}" required>
         </div>
         <div class="mb-3">
             <label class="form-label">Próxima desparasitación</label>
-            <input class="form-control" type="date" name="fecha_validez" value="{{$desparasitacion->fecha_validez}}">
+            <input class="form-control" type="date" name="proxima_desparasitacion" value="{{$desparasitacion->proxima_desparasitacion}}">
         </div>
 
         <a href="{{url('mascotas/'.$mascota_id.'/desparasitaciones')}}" class="btn btn-warning">Atrás</a>

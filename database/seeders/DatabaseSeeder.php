@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +14,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
+        DB::table('veterinaria')->insert([
+            'nombre' => 'Brito',
+            'direccion' => 'Km 6 Interseccion de calle Selva y Bajío',
+            'telefono' => '33532021',
+            'celular' => '73194476',
+            'atencion' => '24hrs',
+        ]);
+
+        DB::table('mascota')->insert([
+            'nombre' => 'Chimuelito',
+            'fecha_nac' => '2019-01-02',
+            'tipo' => 'Felino',
+            'sexo' => 'Macho',
+            'raza' => 'Mestizo',
+            'color' => 'Atigrado',
+        ]);
     }
 }

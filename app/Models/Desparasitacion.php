@@ -15,8 +15,8 @@ class Desparasitacion extends Model
     protected $fillable = [
         'nombre',
         'peso',
-        'fecha_vacuna',
-        'fecha_validez',
+        'fecha_desparasitacion',
+        'proxima_desparasitacion',
         'mascota_id',
         'veterinaria_id',
     ];

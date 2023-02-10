@@ -19,12 +19,12 @@
                             <span class="card-text" style="color: #c7c7c7">
                             <i class="fa fa-calendar-day me-1"></i>
                             {{
-                                Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->fecha_vacuna)
+                                Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->fecha_desparasitacion)
                                     ->isoFormat('DD MMMM YYYY')
                             }}
                                 ---
                             {{
-                                Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->fecha_validez)
+                                Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->proxima_desparasitacion)
                                     ->isoFormat('DD MMMM YYYY')
                             }}
                         </span>
