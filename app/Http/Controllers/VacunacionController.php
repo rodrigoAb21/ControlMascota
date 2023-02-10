@@ -30,10 +30,10 @@ class VacunacionController extends Controller
     public function store($mascota_id, Request $request)
     {
         $vacunacion = new Vacunacion();
+        $vacunacion->tipo_vacuna = $request['tipo_vacuna'];
+        $vacunacion->fecha_vacunacion = $request['fecha_vacunacion'];
+        $vacunacion->proxima_vacunacion = $request['proxima_vacunacion'];
         $vacunacion->nombre = $request['nombre'];
-        $vacunacion->fecha_vacuna = $request['fecha_vacuna'];
-        $vacunacion->fecha_validez = $request['fecha_validez'];
-        $vacunacion->detalle = $request['detalle'];
         $vacunacion->mascota_id = $mascota_id;
         $vacunacion->veterinaria_id = $request['veterinaria_id'];
         $vacunacion->save();
@@ -53,10 +53,10 @@ class VacunacionController extends Controller
     public function update($mascota_id, Request $request, $id)
     {
         $vacunacion = Vacunacion::findOrFail($id);
+        $vacunacion->tipo_vacuna = $request['tipo_vacuna'];
+        $vacunacion->fecha_vacunacion = $request['fecha_vacunacion'];
+        $vacunacion->proxima_vacunacion = $request['proxima_vacunacion'];
         $vacunacion->nombre = $request['nombre'];
-        $vacunacion->fecha_vacuna = $request['fecha_vacuna'];
-        $vacunacion->fecha_validez = $request['fecha_validez'];
-        $vacunacion->detalle = $request['detalle'];
         $vacunacion->veterinaria_id = $request['veterinaria_id'];
         $vacunacion->update();
 

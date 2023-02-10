@@ -13,10 +13,10 @@ class Vacunacion extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
+        'tipo_vacuna',
+        'fecha_vacunacion',
+        'proxima_vacunacion',
         'nombre',
-        'fecha_vacuna',
-        'fecha_validez',
-        'detalle',
         'mascota_id',
         'veterinaria_id',
     ];

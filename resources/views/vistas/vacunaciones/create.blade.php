@@ -15,19 +15,19 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tipo de Vacuna*</label>
-                    <input type="text" class="form-control" name="nombre" required>
+                    <input type="text" class="form-control" name="tipo_vacuna" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Nombre</label>
-                    <input type="text" class="form-control" name="detalle">
+                    <input type="text" class="form-control" name="nombre">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Fecha de Vacunación*</label>
-                    <input class="form-control" type="date" name="fecha_vacuna" value="{{date('Y-m-d')}}" required>
+                    <input class="form-control" type="date" name="fecha_vacunacion" value="{{date('Y-m-d')}}" required>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Próxima Vacunación</label>
-                    <input class="form-control" type="date" name="fecha_validez" value="{{date('Y-m-d')}}">
+                    <input class="form-control" type="date" name="proxima_vacunacion" value="{{date('Y-m-d')}}">
                 </div>
 
 

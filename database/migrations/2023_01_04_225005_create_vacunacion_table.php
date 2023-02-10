@@ -15,10 +15,10 @@ class CreateVacunacionTable extends Migration
     {
         Schema::create('vacunacion', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->date('fecha_vacuna');
-            $table->date('fecha_validez')->nullable();
-            $table->text('detalle')->nullable();
+            $table->string('tipo_vacuna');
+            $table->date('fecha_vacunacion');
+            $table->date('proxima_vacunacion')->nullable();
+            $table->text('nombre')->nullable();
 
             $table->unsignedBigInteger('mascota_id');
             $table->foreign('mascota_id')->references('id')

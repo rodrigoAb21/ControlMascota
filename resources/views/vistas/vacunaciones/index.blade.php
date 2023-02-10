@@ -8,20 +8,37 @@
                     <div class="col-1">
                     </div>
                     <div class="col-11">
-                        <h2 class="card-title" style="color: #91d5f1">{{$vacunacion->nombre}}</h2>
+                        <h2 class="card-title" style="color: #91d5f1">{{$vacunacion->tipo_vacuna}}</h2>
                         <div class="mb-2">
-                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-clinic-medical me-1"></i> Vet. {{$vacunacion->veterinaria->nombre}}</span>
+                            <span class="card-text" style="color: #c7c7c7">
+                                <i class="fa fa-clinic-medical me-1"></i> Vet. {{$vacunacion->veterinaria->nombre}}
+                            </span>
                         </div>
                         <div class="mb-2">
-                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-day me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->fecha_vacuna)->isoFormat('DD MMMM YYYY')}} --- {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->fecha_validez)->isoFormat('DD MMMM YYYY')}}</span>
+                            <span class="card-text" style="color: #c7c7c7">
+                                <i class="fa fa-calendar-day me-1"></i>
+                                {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->fecha_vacunacion)
+                                ->isoFormat('DD MMMM YYYY')}} ---
+                                {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->proxima_vacunacion)
+                                ->isoFormat('DD MMMM YYYY')}}
+                            </span>
                         </div>
                         <div class="mb-2">
-                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-vial me-1"></i> {{$vacunacion->detalle}}</span>
+                            <span class="card-text" style="color: #c7c7c7">
+                                <i class="fa fa-vial me-1"></i> {{$vacunacion->nombre}}
+                            </span>
                         </div>
 
                         <div class="text-end">
-                            <a href="{{url('mascotas/'.$mascota->id.'/vacunaciones/'.$vacunacion->id.'/edit')}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>
-                            <button type="button" class="btn btn-danger" onclick="modalEliminar('{{$vacunacion -> nombre}}', '{{url('mascotas/'.$mascota->id.'/vacunaciones/'.$vacunacion -> id)}}')">
+                            <a
+                                href="{{url('mascotas/'.$mascota->id.'/vacunaciones/'.$vacunacion->id.'/edit')}}"
+                                class="btn btn-warning"><i class="fa fa-pen"></i>
+                            </a>
+                            <button type="button" class="btn btn-danger"
+                                    onclick="modalEliminar(
+                                        '{{$vacunacion -> tipo_vacuna}}',
+                                        '{{url('mascotas/'.$mascota->id.'/vacunaciones/'.$vacunacion -> id)}}'
+                                        )">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </div>
@@ -93,11 +110,11 @@
     @include('vistas.modal')
     @push('scripts')
         <script>
-            function modalEliminar(nombre, url) {
+            function modalEliminar(tipo_vacuna, url) {
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
                 $('#modalEliminarTitulo').html("Eliminar vacunacion");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la vacunacion: " + nombre + "?");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar la vacunacion: " + tipo_vacuna + "?");
                 $('#modalEliminar').modal('show');
             }
         </script>
