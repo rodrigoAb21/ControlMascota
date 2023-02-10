@@ -13,7 +13,7 @@ class Consulta extends Model
     public $timestamps = false;
     protected $fillable = [
         'fecha_consulta',
-        'sintomas',
+        'motivo',
         'diagnostico',
         'fecha_control',
         'mascota_id',

@@ -15,7 +15,7 @@ class ConsultaController extends Controller
     {
         return view('vistas.consultas.index',
             [
-                'consultas' => Consulta::where('mascota_id', '=', $mascota_id)->orderBy('id', 'desc')->get(),
+                'consultas' => Consulta::where('mascota_id', '=', $mascota_id)->orderBy('id', 'asc')->get(),
                 'mascota' => Mascota::findOrFail($mascota_id),
             ]);
     }
@@ -36,7 +36,7 @@ class ConsultaController extends Controller
             DB::beginTransaction();
             $consulta = new Consulta();
             $consulta->fecha_consulta = $request['fecha_consulta'];
-            $consulta->sintomas = $request['sintomas'];
+            $consulta->motivo = $request['motivo'];
             $consulta->diagnostico = $request['diagnostico'];
             $consulta->fecha_control = $request['fecha_control'];
             $consulta->veterinaria_id = $request['veterinaria_id'];
@@ -102,7 +102,7 @@ class ConsultaController extends Controller
             DB::beginTransaction();
             $consulta = Consulta::findOrFail($id);
             $consulta->fecha_consulta = $request['fecha_consulta'];
-            $consulta->sintomas = $request['sintomas'];
+            $consulta->motivo = $request['motivo'];
             $consulta->diagnostico = $request['diagnostico'];
             $consulta->fecha_control = $request['fecha_control'];
             $consulta->veterinaria_id = $request['veterinaria_id'];

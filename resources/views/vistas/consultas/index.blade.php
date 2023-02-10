@@ -9,12 +9,12 @@
                     <div class="col-1">
                     </div>
                     <div class="col-11">
-                        <h2 class="card-title" style="color: #91d5f1">Consulta #{{$consulta->id}}</h2>
+                        <h2 class="card-title" style="color: #91d5f1">Consulta #{{$loop->iteration}}</h2>
                         <div class="mb-2">
                             <span class="card-text" style="color: #c7c7c7"><i class="fa fa-clinic-medical me-1"></i> {{$consulta->veterinaria->nombre}}</span><br>
                         </div>
                         <div class="mb-2">
-                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-info-circle me-1"></i> {{$consulta->sintomas}}</span><br>
+                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-info-circle me-1"></i> {{$consulta->motivo}}</span><br>
                         </div>
                         <div class="mb-2">
                             <span class="card-text" style="color: #c7c7c7">

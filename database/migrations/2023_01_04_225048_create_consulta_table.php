@@ -16,7 +16,7 @@ class CreateConsultaTable extends Migration
         Schema::create('consulta', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('fecha_consulta');
-            $table->text('sintomas');
+            $table->text('motivo');
             $table->text('diagnostico')->nullable();
             $table->date('fecha_control')->nullable();
 

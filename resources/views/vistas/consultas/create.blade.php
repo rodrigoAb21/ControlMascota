@@ -19,7 +19,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Motivo de la consulta*</label>
-                    <textarea class="form-control" name="sintomas" rows="5" required></textarea>
+                    <textarea class="form-control" name="motivo" rows="5" required></textarea>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Diagnóstico</label>

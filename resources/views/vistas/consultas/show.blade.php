@@ -15,7 +15,7 @@
 
     <div class="mb-3">
         <label class="form-label">Motivo de la consulta</label>
-        <textarea class="form-control" name="sintomas" rows="5" readonly>{{$consulta->sintomas}}</textarea>
+        <textarea class="form-control" name="motivo" rows="5" readonly>{{$consulta->motivo}}</textarea>
     </div>
     <div class="mb-3">
         <label class="form-label">Diagnóstico</label>
