@@ -15,24 +15,24 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Teléfono</label>
-                    <input class="form-control" type="number" max="79999999" name="telefono1">
+                    <input class="form-control" type="number" max="79999999" name="telefono">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Celular</label>
-                    <input class="form-control" type="number" max="79999999" name="telefono2">
+                    <input class="form-control" type="number" max="79999999" name="celular">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Atención</label>
                     <br>
                     <div class="form-check form-check-inline">
-                        <input id="r1" class="form-check-input" type="radio" name="horas" value="Normal" checked>
+                        <input id="r1" class="form-check-input" type="radio" name="atencion" value="Normal" checked>
                         <label class="form-check-label" for="r1">
                             Normal
                         </label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input id="r2" class="form-check-input" type="radio" name="horas" value="24hrs" >
+                        <input id="r2" class="form-check-input" type="radio" name="atencion" value="24hrs" >
                         <label class="form-check-label" for="r2">
                             24hrs
                         </label>

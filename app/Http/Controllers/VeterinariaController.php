@@ -26,9 +26,9 @@ class VeterinariaController extends Controller
         $veterinaria = new Veterinaria();
         $veterinaria->nombre = $request['nombre'];
         $veterinaria->direccion = $request['direccion'];
-        $veterinaria->telefono1 = $request['telefono1'];
-        $veterinaria->telefono2 = $request['telefono2'];
-        $veterinaria->horas = $request['horas'];
+        $veterinaria->telefono = $request['telefono'];
+        $veterinaria->celular = $request['celular'];
+        $veterinaria->atencion = $request['atencion'];
         $veterinaria->latitud = $request['latitud'];
         $veterinaria->longitud = $request['longitud'];
         $veterinaria->save();
@@ -51,9 +51,9 @@ class VeterinariaController extends Controller
         $veterinaria = Veterinaria::findOrFail($id);
         $veterinaria->nombre = $request['nombre'];
         $veterinaria->direccion = $request['direccion'];
-        $veterinaria->telefono1 = $request['telefono1'];
-        $veterinaria->telefono2 = $request['telefono2'];
-        $veterinaria->horas = $request['horas'];
+        $veterinaria->telefono = $request['telefono'];
+        $veterinaria->celular = $request['celular'];
+        $veterinaria->atencion = $request['atencion'];
         $veterinaria->latitud = $request['latitud'];
         $veterinaria->longitud = $request['longitud'];
         $veterinaria->update();

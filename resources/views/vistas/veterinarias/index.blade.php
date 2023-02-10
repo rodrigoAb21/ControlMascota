@@ -11,13 +11,13 @@
                         <h2 class="card-title" style="color: #91d5f1">{{$veterinaria->nombre}}</h2>
 
                         <div class="mb-2">
-                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-phone me-1"></i> {{$veterinaria->telefono2}} {{$veterinaria->telefono1}}</span>
+                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-phone me-1"></i> {{$veterinaria->celular}} - {{$veterinaria->telefono}}</span>
                         </div>
                         <div class="mb-2">
                             <span class="card-text" style="color: #c7c7c7"><i class="fa fa-map-marked-alt me-1"></i> {{$veterinaria->direccion}}</span>
                         </div>
                         <div class="mb-2">
-                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-history me-1"></i> {{$veterinaria->horas}}</span>
+                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-history me-1"></i> {{$veterinaria->atencion}}</span>
                         </div>
 
                         <div class="text-end">

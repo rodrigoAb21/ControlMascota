@@ -15,9 +15,9 @@ class Veterinaria extends Model
     protected $fillable = [
         'nombre',
         'direccion',
-        'telefono1',
-        'telefono2',
-        'horas',
+        'telefono',
+        'celular',
+        'atencion',
         'latitud',
         'longitud',
     ];
