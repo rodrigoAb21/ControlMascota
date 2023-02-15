@@ -18,7 +18,7 @@
                     <input type="text" class="form-control" name="nombre">
                 </div>
                 <div class="mb-3">
-                    <label class="form-label">Peso</label>
+                    <label class="form-label">Peso kg</label>
                     <input type="number" step="any" min="0" class="form-control" name="peso">
                 </div>
                 <div class="mb-3">
