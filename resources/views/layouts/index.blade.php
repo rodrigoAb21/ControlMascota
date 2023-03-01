@@ -15,25 +15,38 @@
     @stack('arriba')
 </head>
 <body>
-<nav class="navbar navbar-light bg-light bg-gradient">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{url('/')}}">
             <img src="{{asset('icon.png')}}" alt="" width="30" height="24" class="d-inline-block align-text-top">
             Control Veterinario
         </a>
-    </div>
-    <div class="navbar-collapse">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        @if (!\Auth::guest())
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a  class="nav-link dropdown-toggle"
+                            href="#"
+                            id="navbarDropdownMenuLink"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
 
-        <ul class="navbar-nav my-lg-0">
+                            {{\Auth::user()->nombre }}
+                        </a>
 
-            @if (!\Auth::guest())
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{\Auth::user()->nombre }} {{\Auth::user()->apellido }}</a>
-                    <div class="dropdown-menu dropdown-menu-right scale-up">
-                        <ul class="dropdown-user">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item" href="{{url('editar')}}">
+                                    <i class="fa fa-user-cog"></i> Editar Usuario
+                                </a>
+                            </li>
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();" class="cerrar">
+                    document.getElementById('logout-form').submit();" class="dropdown-item">
                                     <i class="fa fa-power-off"></i>
                                     Cerrar Sesión
                                 </a>
@@ -43,10 +56,10 @@
                                 </form>
                             </li>
                         </ul>
-                    </div>
-                </li>
-            @endif
-        </ul>
+                    </li>
+                </ul>
+            </div>
+        @endif
     </div>
 </nav>
 

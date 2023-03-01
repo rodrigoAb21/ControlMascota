@@ -13,16 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->middleware('auth');
 
-Route::get('/home', function () {
-    return redirect('/');
-})->middleware('auth');
 
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('home');
+    });
+
+    Route::get('/home', function () {
+        return redirect('/');
+    });
+
+    /* -------------------------- USUARIO ----------------------------------*/
+    Route::get('editar', 'UsuarioController@editar');
+    Route::patch('actualizar', 'UsuarioController@actualizar');
+    Route::delete('eliminar', 'UsuarioController@eliminar');
+
     /* -------------------------- CONSULTAS ----------------------------------*/
     Route::get('mascotas/{mascota_id}/consultas', 'ConsultaController@index');
     Route::get('mascotas/{mascota_id}/consultas/create', 'ConsultaController@create');

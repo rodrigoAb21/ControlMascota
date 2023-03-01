@@ -16,15 +16,15 @@ class CreateUsuarioTable extends Migration
         Schema::create('usuario', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-            $table->string('tipo');
+            $table->boolean('admin');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
         });
 
         DB::table('usuario')->insert([
-            'nombre' => 'Rodrigo',
-            'tipo' => 'Administrador',
+            'nombre' => 'Rodrigo Abasto',
+            'admin' => true,
             'email' => 'admin@gmail.com',
             'password' => bcrypt('rodrigo'),
         ]);
