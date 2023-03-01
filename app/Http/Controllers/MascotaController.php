@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mascota;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MascotaController extends Controller
 {
@@ -14,8 +15,12 @@ class MascotaController extends Controller
 
     public function index()
     {
-        setlocale(LC_ALL, 'es_ES');
-        return view('vistas.mascotas.index', ['mascotas' => Mascota::orderBy('id', 'asc')->get()]);
+        if (Auth::user()->admin) {
+            $mascotas = Mascota::orderBy('id', 'asc')->get();
+        } else {
+            $mascotas = Mascota::where('usuario_id','=', Auth::id())->orderBy('id', 'asc')->get();
+        }
+        return view('vistas.mascotas.index', ['mascotas' => $mascotas]);
     }
 
     public function create()
@@ -32,6 +37,7 @@ class MascotaController extends Controller
         $mascota->sexo = $request['sexo'];
         $mascota->raza = $request['raza'];
         $mascota->color = $request['color'];
+        $mascota->usuario_id = Auth::id();
         $mascota->save();
 
         return redirect('mascotas');
@@ -39,16 +45,25 @@ class MascotaController extends Controller
 
     public function show($id)
     {
-        return view('vistas.mascotas.show', ['mascota' => Mascota::findOrFail($id)]);
+        $mascota = Mascota::findOrFail($id);
+        if ($mascota->usuario_id == Auth::id() || Auth::user()->admin) {
+            return view('vistas.mascotas.show', ['mascota' => $mascota]);
+        } else {
+            return redirect('mascotas');
+        }
     }
 
     public function edit($id)
     {
-
-        return view('vistas.mascotas.edit', [
-            'mascota' => Mascota::findOrFail($id),
-            'tipos' => $this->tipos
-        ]);
+        $mascota = Mascota::findOrFail($id);
+        if ($mascota->usuario_id == Auth::id() || Auth::user()->admin) {
+            return view('vistas.mascotas.edit', [
+                'mascota' => $mascota,
+                'tipos' => $this->tipos
+            ]);
+        } else {
+            return redirect("mascotas");
+        }
     }
 
     public function update(Request $request, $id)
@@ -68,8 +83,11 @@ class MascotaController extends Controller
     public function destroy($id)
     {
         $mascota = Mascota::findOrFail($id);
-        $mascota->delete();
+        if ($mascota->usuario_id == Auth::id() || Auth::user()->admin) {
+            $mascota->delete();
+        }
 
-        return redirect('mascotas');
+        return redirect("mascotas");
+
     }
 }

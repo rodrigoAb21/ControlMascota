@@ -19,6 +19,7 @@ class Desparasitacion extends Model
         'proxima_desparasitacion',
         'mascota_id',
         'veterinaria_id',
+        'usuario_id',
     ];
 
     public function veterinaria(){

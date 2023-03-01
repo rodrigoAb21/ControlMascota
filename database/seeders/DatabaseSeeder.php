@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             'sexo' => 'Macho',
             'raza' => 'Mestizo',
             'color' => 'Atigrado',
+            'usuario_id' => 1,
         ]);
     }
 }

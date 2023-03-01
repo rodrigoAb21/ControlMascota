@@ -19,5 +19,6 @@ class Mascota extends Model
         'sexo',
         'color',
         'raza',
+        'usuario_id',
     ];
 }

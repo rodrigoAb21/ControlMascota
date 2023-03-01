@@ -19,6 +19,7 @@ class Vacunacion extends Model
         'nombre',
         'mascota_id',
         'veterinaria_id',
+        'usuario_id',
     ];
 
     public function veterinaria(){

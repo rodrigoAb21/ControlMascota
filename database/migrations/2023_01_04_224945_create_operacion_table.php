@@ -25,6 +25,11 @@ class CreateOperacionTable extends Migration
             $table->unsignedBigInteger('veterinaria_id');
             $table->foreign('veterinaria_id')->references('id')
                 ->on('veterinaria')->onDelete('cascade');
+
+
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')
+                ->on('usuario')->onDelete('cascade');
         });
     }
 

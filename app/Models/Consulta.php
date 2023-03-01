@@ -18,6 +18,7 @@ class Consulta extends Model
         'fecha_control',
         'mascota_id',
         'veterinaria_id',
+        'usuario_id',
     ];
 
     public function tratamientos(){

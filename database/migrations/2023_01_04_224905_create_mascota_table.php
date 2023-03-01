@@ -21,6 +21,11 @@ class CreateMascotaTable extends Migration
             $table->string('sexo');
             $table->string('raza')->nullable();
             $table->string('color')->nullable();
+
+
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')
+                ->on('usuario')->onDelete('cascade');
         });
     }
 

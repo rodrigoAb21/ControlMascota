@@ -17,6 +17,7 @@ class Operacion extends Model
         'fecha',
         'mascota_id',
         'veterinaria_id',
+        'usuario_id',
     ];
 
     public function veterinaria(){

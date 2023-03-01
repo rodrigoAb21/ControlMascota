@@ -22,6 +22,10 @@ class CreateTratamientoTable extends Migration
             $table->unsignedBigInteger('consulta_id');
             $table->foreign('consulta_id')->references('id')
                 ->on('consulta')->onDelete('cascade');
+
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')
+                ->on('usuario')->onDelete('cascade');
         });
     }
 
