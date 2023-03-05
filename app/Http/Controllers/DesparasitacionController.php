@@ -6,26 +6,46 @@ use App\Models\Desparasitacion;
 use App\Models\Mascota;
 use App\Models\Veterinaria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DesparasitacionController extends Controller
 {
     public function index($mascota_id)
     {
-        return view('vistas.desparasitaciones.index',
-            [
-                'desparasitaciones' => Desparasitacion::where('mascota_id','=',$mascota_id)->orderBy('id', 'asc')->get(),
-                'mascota' => Mascota::findOrFail($mascota_id),
-            ]);
+        $mascota = Mascota::findOrFail($mascota_id);
+        if ($mascota->usuario_id == Auth::id() || Auth::user()->admin){
+            if (Auth::user()->admin) {
+                $desparasitaciones = Desparasitacion::where('mascota_id','=',$mascota_id)
+                    ->orderBy('id', 'asc')
+                    ->get();
+            } else {
+                $desparasitaciones = Desparasitacion::where('mascota_id','=',$mascota_id)
+                    ->where('usuario_id','=', Auth::id())
+                    ->orderBy('id', 'asc')
+                    ->get();
+            }
+
+            return view('vistas.desparasitaciones.index',
+                [
+                    'desparasitaciones' => $desparasitaciones,
+                    'mascota' => Mascota::findOrFail($mascota_id),
+                ]);
+        }
+        return redirect('mascotas');
+
     }
 
     public function create($mascota_id)
     {
-
-        return view('vistas.desparasitaciones.create',
-            [
-                'mascota_id' => $mascota_id,
-                'veterinarias' => Veterinaria::all(),
-            ]);
+        $mascota = Mascota::findOrFail($mascota_id);
+        if ($mascota->usuario_id == Auth::id() || Auth::user()->admin){
+            return view('vistas.desparasitaciones.create',
+                [
+                    'mascota_id' => $mascota_id,
+                    'veterinarias' => Veterinaria::all(),
+                ]);
+        }
+        return redirect('mascotas');
     }
 
     public function store($mascota_id, Request $request)
@@ -37,6 +57,7 @@ class DesparasitacionController extends Controller
         $desparasitacion->proxima_desparasitacion = $request['proxima_desparasitacion'];
         $desparasitacion->mascota_id = $mascota_id;
         $desparasitacion->veterinaria_id = $request['veterinaria_id'];
+        $desparasitacion->usuario_id = Auth::id();
         $desparasitacion->save();
 
         return redirect('mascotas/'.$mascota_id.'/desparasitaciones');
@@ -44,12 +65,17 @@ class DesparasitacionController extends Controller
 
     public function edit($mascota_id, $id)
     {
-        return view('vistas.desparasitaciones.edit',
-            [
-                'desparasitacion' => Desparasitacion::findOrFail($id),
+        $desparasitacion = Desparasitacion::findOrFail($id);
+        if ($desparasitacion->usuario_id == Auth::id() || Auth::user()->admin) {
+            return view('vistas.desparasitaciones.edit', [
+                'desparasitacion' => $desparasitacion,
                 'mascota_id' => $mascota_id,
                 'veterinarias' => Veterinaria::all(),
             ]);
+        }
+
+        return redirect('mascotas');
+
     }
 
     public function update($mascota_id, Request $request, $id)
@@ -69,7 +95,9 @@ class DesparasitacionController extends Controller
     public function destroy($mascota_id, $id)
     {
         $desparasitacion = Desparasitacion::findOrFail($id);
-        $desparasitacion->delete();
+        if ($desparasitacion->usuario_id == Auth::id() || Auth::user()->admin){
+            $desparasitacion->delete();
+        }
 
         return redirect('mascotas/'.$mascota_id.'/desparasitaciones');
     }
