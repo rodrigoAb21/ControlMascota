@@ -4,18 +4,38 @@ namespace App\Http\Controllers;
 
 use App\Models\Mascota;
 use App\Models\Veterinaria;
-use App\Models  \Vacunacion;
+use App\Models\Vacunacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VacunacionController extends Controller
 {
     public function index($mascota_id)
     {
-        return view('vistas.vacunaciones.index',
-            [
-                'vacunaciones' => Vacunacion::where('mascota_id', '=', $mascota_id)->orderBy('id', 'asc')->get(),
-                'mascota' => Mascota::findOrFail($mascota_id),
-            ]);
+        $mascota = Mascota::findOrFail($mascota_id);
+        if ($mascota->usuario_id == Auth::id() || Auth::user()->admin) {
+            if (Auth::user()->admin) {
+                $vacunaciones = Vacunacion::where('mascota_id', '=', $mascota_id)
+                ->orderBy('id', 'asc')
+                ->get();    
+            } else {
+                $vacunaciones = Vacunacion::where('mascota_id', '=', $mascota_id)
+                ->where('usuario_id', '=', Auth::id())
+                ->orderBy('id', 'asc')
+                ->get();
+            }
+
+            return view('vistas.vacunaciones.index',
+                [
+                    'vacunaciones' => $vacunaciones,
+                    'mascota' => $mascota,
+                ]);     
+            
+        }
+
+        return redirect('mascotas');
+
+        
     }
 
     public function create($mascota_id)
@@ -36,6 +56,7 @@ class VacunacionController extends Controller
         $vacunacion->nombre = $request['nombre'];
         $vacunacion->mascota_id = $mascota_id;
         $vacunacion->veterinaria_id = $request['veterinaria_id'];
+        $vacunacion->usuario_id = Auth::id();
         $vacunacion->save();
 
         return redirect('mascotas/'.$mascota_id.'/vacunaciones');
@@ -43,11 +64,16 @@ class VacunacionController extends Controller
 
     public function edit($mascota_id, $id)
     {
-        return view('vistas.vacunaciones.edit', [
-            'vacunacion' => Vacunacion::findOrFail($id),
-            'mascota_id' => $mascota_id,
-            'veterinarias' => Veterinaria::all(),
-        ]);
+        $vacunacion = Vacunacion::findOrFail($id);
+        if ($vacunacion->usuario_id == Auth::id() || Auth::user()->admin) {
+            return view('vistas.vacunaciones.edit', [
+                'vacunacion' => $vacunacion,
+                'mascota_id' => $mascota_id,
+                'veterinarias' => Veterinaria::all(),
+            ]);    
+        }
+
+        return redirect('mascotas');
     }
 
     public function update($mascota_id, Request $request, $id)
@@ -66,8 +92,11 @@ class VacunacionController extends Controller
     public function destroy($mascota_id,$id)
     {
         $vacunacion = Vacunacion::findOrFail($id);
-        $vacunacion->delete();
+        if ($vacunacion->usuario_id == Auth::id() || Auth::user()->admin) {
+            $vacunacion->delete();
+            return redirect('mascotas/'.$mascota_id.'/vacunaciones');  
+        }
 
-        return redirect('mascotas/'.$mascota_id.'/vacunaciones');
+        return redirect('mascotas');
     }
 }

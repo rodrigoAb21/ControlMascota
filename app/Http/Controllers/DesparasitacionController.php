@@ -28,7 +28,7 @@ class DesparasitacionController extends Controller
             return view('vistas.desparasitaciones.index',
                 [
                     'desparasitaciones' => $desparasitaciones,
-                    'mascota' => Mascota::findOrFail($mascota_id),
+                    'mascota' => $mascota,
                 ]);
         }
         return redirect('mascotas');

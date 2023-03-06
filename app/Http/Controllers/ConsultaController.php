@@ -6,18 +6,33 @@ use App\Models\Consulta;
 use App\Models\Mascota;
 use App\Models\Tratamiento;
 use App\Models\Veterinaria;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ConsultaController extends Controller
 {
     public function index($mascota_id)
     {
+        $mascota = Mascota::findOrFail($mascota_id);
+        if ($mascota->usuario_id == Auth::id() || Auth::user()->admin) {
+            if (Auth::user()->admin) {
+                $consultas = Consulta::where('mascota_id', '=', $mascota_id)->orderBy('id', 'asc')->get();
+            }
+            else {
+                $consultas = Consulta::where('mascota_id', '=', $mascota_id)
+                ->where('usuario_id', '=', Auth::id())
+                ->orderBy('id', 'asc')->get();
+            }
         return view('vistas.consultas.index',
             [
-                'consultas' => Consulta::where('mascota_id', '=', $mascota_id)->orderBy('id', 'asc')->get(),
-                'mascota' => Mascota::findOrFail($mascota_id),
+                'consultas' => $consultas,
+                'mascota' => $mascota,
             ]);
+        }
+        return redirect('mascotas');
+        
     }
 
     public function create($mascota_id)
@@ -41,6 +56,7 @@ class ConsultaController extends Controller
             $consulta->fecha_control = $request['fecha_control'];
             $consulta->veterinaria_id = $request['veterinaria_id'];
             $consulta->mascota_id = $mascota_id;
+            $consulta->usuario_id = Auth::id();
             $consulta->save();
 
 
@@ -57,7 +73,6 @@ class ConsultaController extends Controller
                     $tratamiento->dosis = $dosis[$cont];
                     $tratamiento->cantidad_dias = $cantidad_dias[$cont];
                     $tratamiento->consulta_id = $consulta->id;
-
                     $tratamiento->save();
 
 
@@ -78,22 +93,31 @@ class ConsultaController extends Controller
 
     public function show($mascota_id, $id)
     {
-        return view('vistas.consultas.show',
-            [
-                'consulta' => Consulta::findOrFail($id),
-                'mascota_id' => $mascota_id,
-            ]);
+        $consulta = Consulta::findOrFail($id);
+        if ($consulta->usuario_id == Auth::id() || Auth::user()->admin) {
+            return view('vistas.consultas.show',
+                [
+                    'consulta' => $consulta,
+                    'mascota_id' => $mascota_id,
+                ]);
+        }
     }
 
     public function edit($mascota_id, $id)
     {
-        return view('vistas.consultas.edit',
+        $consulta = Consulta::findOrFail($id);
+        if ($consulta->usuario_id == Auth::id() || Auth::user()->admin) {
+            return view('vistas.consultas.edit',
             [
-                'consulta' => Consulta::findOrFail($id),
+                'consulta' => $consulta,
                 'veterinarias' => Veterinaria::all(),
                 'mascota_id' => $mascota_id,
                 'tratamientos' => Tratamiento::where('consulta_id', '=', $id)->get(),
             ]);
+        }
+
+        return redirect('mascotas');
+        
     }
 
     public function update($mascota_id, Request $request, $id)
@@ -124,9 +148,7 @@ class ConsultaController extends Controller
                     $tratamiento->dosis = $dosis[$cont];
                     $tratamiento->cantidad_dias = $cantidad_dias[$cont];
                     $tratamiento->consulta_id = $consulta->id;
-
                     $tratamiento->save();
-
 
                     $cont = $cont + 1;
                 }
@@ -146,8 +168,13 @@ class ConsultaController extends Controller
     public function destroy($mascota_id, $id)
     {
         $consulta = Consulta::findOrFail($id);
-        $consulta->delete();
+        if ($consulta->usuario_id == Auth::id() || Auth::user()->admin) {
+            $consulta->delete();
 
-        return redirect('mascotas/'.$mascota_id.'/consultas');
+            return redirect('mascotas/'.$mascota_id.'/consultas');
+        }
+
+        return redirect('mascotas');
+
     }
 }

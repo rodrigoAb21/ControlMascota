@@ -17,6 +17,5 @@ class Tratamiento extends Model
         'dosis',
         'cantidad_dias',
         'consulta_id',
-        'usuario_id',
     ];
 }
