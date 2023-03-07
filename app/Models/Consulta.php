@@ -16,6 +16,7 @@ class Consulta extends Model
         'motivo',
         'diagnostico',
         'fecha_control',
+        'costo',
         'mascota_id',
         'veterinaria_id',
         'usuario_id',

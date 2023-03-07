@@ -21,6 +21,10 @@
                     <label class="form-label">Fecha*</label>
                     <input class="form-control" type="date" name="fecha" value="{{date('Y-m-d')}}" required>
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Costo Bs.</label>
+                    <input class="form-control" type="number" name="costo" step="0.01" min="0" value="0">
+                </div>
 
                 <a href="{{url('mascotas/'.$mascota_id.'/operaciones')}}" class="btn btn-warning">Atrás</a>
                 <button type="submit" class="btn btn-primary">Guardar</button>

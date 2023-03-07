@@ -15,6 +15,7 @@ class Operacion extends Model
     protected $fillable = [
         'descripcion',
         'fecha',
+        'costo',
         'mascota_id',
         'veterinaria_id',
         'usuario_id',

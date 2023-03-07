@@ -11,10 +11,19 @@
                     <div class="col-11">
                         <h2 class="card-title" style="color: #91d5f1">Consulta #{{$loop->iteration}}</h2>
                         <div class="mb-2">
-                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-clinic-medical me-1"></i> {{$consulta->veterinaria->nombre}}</span><br>
+                            <span class="card-text" style="color: #c7c7c7">
+                                <i class="fa fa-clinic-medical me-1"></i> {{$consulta->veterinaria->nombre}}
+                            </span><br>
                         </div>
                         <div class="mb-2">
-                            <span class="card-text" style="color: #c7c7c7"><i class="fa fa-info-circle me-1"></i> {{$consulta->motivo}}</span><br>
+                            <span class="card-text" style="color: #c7c7c7">
+                                <i class="fa fa-info-circle me-1"></i> {{$consulta->motivo}}
+                            </span><br>
+                        </div>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7">
+                                <i class="fa fa-coins"></i> Bs. {{$consulta->costo}} 
+                            </span><br>
                         </div>
                         <div class="mb-2">
                             <span class="card-text" style="color: #c7c7c7">
@@ -24,7 +33,6 @@
                                 {{Carbon\Carbon::createFromFormat('Y-m-d', $consulta->fecha_control)->isoFormat('DD MMMM YYYY')}}
                             </span>
                         </div>
-
                         <div class="text-end">
                             <a href="{{url('mascotas/'.$mascota->id.'/consultas/'.$consulta->id)}}"
                                class="btn btn-light"><i class="fa fa-eye"></i></a>

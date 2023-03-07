@@ -16,16 +16,21 @@
                         </div>
                         <div class="mb-2">
                             <span class="card-text" style="color: #c7c7c7">
+                                <i class="fa fa-vial me-1"></i> {{$vacunacion->nombre}}
+                            </span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7">
+                                <i class="fa fa-coins"></i> Bs. {{$vacunacion->costo}} 
+                            </span><br>
+                        </div>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7">
                                 <i class="fa fa-calendar-day me-1"></i>
                                 {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->fecha_vacunacion)
                                 ->isoFormat('DD MMMM YYYY')}} ---
                                 {{Carbon\Carbon::createFromFormat('Y-m-d', $vacunacion->proxima_vacunacion)
                                 ->isoFormat('DD MMMM YYYY')}}
-                            </span>
-                        </div>
-                        <div class="mb-2">
-                            <span class="card-text" style="color: #c7c7c7">
-                                <i class="fa fa-vial me-1"></i> {{$vacunacion->nombre}}
                             </span>
                         </div>
 

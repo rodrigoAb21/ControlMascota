@@ -25,6 +25,10 @@
         <label class="form-label">Fecha del control</label>
         <input class="form-control" name="fecha_control" value="{{Carbon\Carbon::createFromFormat('Y-m-d', $consulta->fecha_control)->isoFormat('DD MMMM YYYY')}}"  readonly>
     </div>
+    <div class="mb-3">
+        <label class="form-label">Costo Bs.</label>
+        <input class="form-control" type="number" readonly name="costo" step="0.01" value="{{ $consulta->costo }}">
+    </div>
     <hr>
     <h2 class="text-center">Tratamiento</h2> <br>
 

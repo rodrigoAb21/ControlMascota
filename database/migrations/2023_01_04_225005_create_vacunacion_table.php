@@ -19,6 +19,7 @@ class CreateVacunacionTable extends Migration
             $table->date('fecha_vacunacion');
             $table->date('proxima_vacunacion')->nullable();
             $table->text('nombre')->nullable();
+            $table->float('costo')->nullable();
 
             $table->unsignedBigInteger('mascota_id');
             $table->foreign('mascota_id')->references('id')

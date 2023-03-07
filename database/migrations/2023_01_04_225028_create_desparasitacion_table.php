@@ -19,6 +19,7 @@ class CreateDesparasitacionTable extends Migration
             $table->date('fecha_desparasitacion');
             $table->float('peso')->nullable();
             $table->date('proxima_desparasitacion')->nullable();
+            $table->float('costo')->nullable();
 
             $table->unsignedBigInteger('mascota_id');
             $table->foreign('mascota_id')->references('id')

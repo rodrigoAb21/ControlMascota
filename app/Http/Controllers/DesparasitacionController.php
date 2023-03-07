@@ -55,6 +55,7 @@ class DesparasitacionController extends Controller
         $desparasitacion->peso = $request['peso'];
         $desparasitacion->fecha_desparasitacion = $request['fecha_desparasitacion'];
         $desparasitacion->proxima_desparasitacion = $request['proxima_desparasitacion'];
+        $desparasitacion->costo = $request['costo'];
         $desparasitacion->mascota_id = $mascota_id;
         $desparasitacion->veterinaria_id = $request['veterinaria_id'];
         $desparasitacion->usuario_id = Auth::id();
@@ -85,6 +86,7 @@ class DesparasitacionController extends Controller
         $desparasitacion->peso = $request['peso'];
         $desparasitacion->fecha_desparasitacion = $request['fecha_desparasitacion'];
         $desparasitacion->proxima_desparasitacion = $request['proxima_desparasitacion'];
+        $desparasitacion->costo = $request['costo'];
         $desparasitacion->veterinaria_id = $request['veterinaria_id'];
         $desparasitacion->update();
 

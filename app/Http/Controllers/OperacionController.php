@@ -53,6 +53,7 @@ class OperacionController extends Controller
         $operacion = new Operacion();
         $operacion->descripcion = $request['descripcion'];
         $operacion->fecha = $request['fecha'];
+        $operacion->costo = $request['costo'];
         $operacion->mascota_id = $mascota_id;
         $operacion->veterinaria_id = $request['veterinaria_id'];
         $operacion->usuario_id = Auth::id();
@@ -80,6 +81,7 @@ class OperacionController extends Controller
         $operacion = Operacion::findOrFail($id);
         $operacion->descripcion = $request['descripcion'];
         $operacion->fecha = $request['fecha'];
+        $operacion->costo = $request['costo'];
         $operacion->veterinaria_id = $request['veterinaria_id'];
         $operacion->update();
 

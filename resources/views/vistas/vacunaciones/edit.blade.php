@@ -34,6 +34,10 @@
             <label class="form-label">Próxima Vacunación</label>
             <input class="form-control" type="date" name="proxima_vacunacion" value="{{$vacunacion->proxima_vacunacion}}">
         </div>
+        <div class="mb-3">
+            <label class="form-label">Costo Bs.</label>
+            <input class="form-control" type="number" min="0" name="costo" step="0.01" value="{{ $vacunacion->costo }}">
+        </div>
 
 
         <a href="{{url('mascotas/'.$mascota_id.'/vacunaciones')}}" class="btn btn-warning">Atrás</a>

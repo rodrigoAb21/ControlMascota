@@ -17,6 +17,7 @@ class Vacunacion extends Model
         'fecha_vacunacion',
         'proxima_vacunacion',
         'nombre',
+        'costo',
         'mascota_id',
         'veterinaria_id',
         'usuario_id',

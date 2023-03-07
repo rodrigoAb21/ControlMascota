@@ -34,6 +34,10 @@
             <label class="form-label">Próxima desparasitación</label>
             <input class="form-control" type="date" name="proxima_desparasitacion" value="{{$desparasitacion->proxima_desparasitacion}}">
         </div>
+        <div class="mb-3">
+            <label class="form-label">Costo Bs.</label>
+            <input class="form-control" type="number" name="costo" step="0.01" min="0"  value="{{ $desparasitacion->costo }}">
+        </div>
 
         <a href="{{url('mascotas/'.$mascota_id.'/desparasitaciones')}}" class="btn btn-warning">Atrás</a>
         <button type="submit" class="btn btn-primary">Guardar</button>

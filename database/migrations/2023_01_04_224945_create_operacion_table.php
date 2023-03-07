@@ -17,6 +17,7 @@ class CreateOperacionTable extends Migration
             $table->bigIncrements('id');
             $table->string('descripcion');
             $table->date('fecha');
+            $table->float('costo')->nullable();
 
             $table->unsignedBigInteger('mascota_id');
             $table->foreign('mascota_id')->references('id')

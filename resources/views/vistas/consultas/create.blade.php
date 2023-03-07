@@ -29,6 +29,11 @@
                     <label class="form-label">Fecha del control</label>
                     <input class="form-control" type="date" name="fecha_control" value="{{date('Y-m-d')}}">
                 </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Costo Bs.</label>
+                    <input class="form-control" type="number" name="costo" step="0.01" min="0" value="0">
+                </div>
                 <hr>
                 <h2 class="text-center">Tratamiento</h2> <br>
                 <div class="mb-3">

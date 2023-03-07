@@ -17,6 +17,11 @@
                         </div>
                         <div class="mb-2">
                             <span class="card-text" style="color: #c7c7c7">
+                                <i class="fa fa-coins"></i> Bs. {{$desparasitacion->costo}} 
+                            </span><br>
+                        </div>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7">
                             <i class="fa fa-calendar-day me-1"></i>
                             {{
                                 Carbon\Carbon::createFromFormat('Y-m-d', $desparasitacion->fecha_desparasitacion)

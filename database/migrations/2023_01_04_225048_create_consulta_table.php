@@ -19,6 +19,7 @@ class CreateConsultaTable extends Migration
             $table->text('motivo');
             $table->text('diagnostico')->nullable();
             $table->date('fecha_control')->nullable();
+            $table->float('costo')->nullable();
 
             $table->unsignedBigInteger('mascota_id');
             $table->foreign('mascota_id')->references('id')

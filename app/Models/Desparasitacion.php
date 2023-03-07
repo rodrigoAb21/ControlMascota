@@ -17,6 +17,7 @@ class Desparasitacion extends Model
         'peso',
         'fecha_desparasitacion',
         'proxima_desparasitacion',
+        'costo',
         'mascota_id',
         'veterinaria_id',
         'usuario_id',

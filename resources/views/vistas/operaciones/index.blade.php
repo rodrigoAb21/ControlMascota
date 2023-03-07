@@ -15,6 +15,11 @@
                         <div class="mb-2">
                             <span class="card-text" style="color: #c7c7c7"><i class="fa fa-calendar-check me-1"></i> {{Carbon\Carbon::createFromFormat('Y-m-d', $operacion->fecha)->isoFormat('DD MMMM YYYY')}}</span>
                         </div>
+                        <div class="mb-2">
+                            <span class="card-text" style="color: #c7c7c7">
+                                <i class="fa fa-coins"></i> Bs. {{$operacion->costo}} 
+                            </span><br>
+                        </div>
 
                         <div class="text-end">
                             <a href="{{url('mascotas/'.$mascota->id.'/operaciones/'.$operacion->id.'/edit')}}" class="btn btn-warning"><i class="fa fa-pen"></i></a>

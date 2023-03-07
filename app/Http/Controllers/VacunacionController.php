@@ -54,6 +54,7 @@ class VacunacionController extends Controller
         $vacunacion->fecha_vacunacion = $request['fecha_vacunacion'];
         $vacunacion->proxima_vacunacion = $request['proxima_vacunacion'];
         $vacunacion->nombre = $request['nombre'];
+        $vacunacion->costo = $request['costo'];
         $vacunacion->mascota_id = $mascota_id;
         $vacunacion->veterinaria_id = $request['veterinaria_id'];
         $vacunacion->usuario_id = Auth::id();
@@ -83,6 +84,7 @@ class VacunacionController extends Controller
         $vacunacion->fecha_vacunacion = $request['fecha_vacunacion'];
         $vacunacion->proxima_vacunacion = $request['proxima_vacunacion'];
         $vacunacion->nombre = $request['nombre'];
+        $vacunacion->costo = $request['costo'];
         $vacunacion->veterinaria_id = $request['veterinaria_id'];
         $vacunacion->update();
 

@@ -54,6 +54,7 @@ class ConsultaController extends Controller
             $consulta->motivo = $request['motivo'];
             $consulta->diagnostico = $request['diagnostico'];
             $consulta->fecha_control = $request['fecha_control'];
+            $consulta->costo = $request['costo'];
             $consulta->veterinaria_id = $request['veterinaria_id'];
             $consulta->mascota_id = $mascota_id;
             $consulta->usuario_id = Auth::id();
@@ -129,6 +130,7 @@ class ConsultaController extends Controller
             $consulta->motivo = $request['motivo'];
             $consulta->diagnostico = $request['diagnostico'];
             $consulta->fecha_control = $request['fecha_control'];
+            $consulta->costo = $request['costo'];
             $consulta->veterinaria_id = $request['veterinaria_id'];
             $consulta->update();
 
