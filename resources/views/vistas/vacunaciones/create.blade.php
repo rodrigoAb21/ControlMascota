@@ -33,9 +33,13 @@
                     <label class="form-label">Costo Bs.</label>
                     <input class="form-control" type="number" name="costo" step="0.01" min="0" value="0">
                 </div>
-
-
-                <a href="{{url('mascotas/'.$mascota_id.'/vacunaciones')}}" class="btn btn-warning">Atrás</a>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                         
+                <div style="margin-bottom: 200px"></div>
+                <button type="submit" class="float2">
+                    <i class="fa fa-check fa-2x my-float3"></i>
+                </button>
+                <a href="{{url('mascotas/'.$mascota_id.'/vacunaciones')}}" class="float">
+                    <i class="fa fa-arrow-left fa-2x my-float"></i>
+                </a>
             </form>
 @endsection

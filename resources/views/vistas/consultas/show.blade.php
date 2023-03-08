@@ -55,7 +55,8 @@
         @endforeach
     </div>
 
-    <a href="{{url('mascotas/'.$mascota_id.'/consultas')}}" class="btn btn-warning">Atrás</a>
-
-    <div class="mb-3"></div>
+    <div style="margin-bottom: 200px"></div>
+    <a href="{{url('mascotas/'.$mascota_id.'/consultas')}}" class="float">
+        <i class="fa fa-arrow-left fa-2x my-float"></i>
+    </a>
 @endsection

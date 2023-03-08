@@ -9,9 +9,11 @@
     <!-- Bootstrap CSS -->
     <link href="{{asset('plugins/fontawesome/css/all.min.css')}}" rel="stylesheet">
     <link href="{{asset('plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/boton-flotante.css')}}" rel="stylesheet">
+    <link href="{{asset('css/tarjetas.css')}}" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('icon.png')}}"/>
     <title>Control Veterinario</title>
-
+    
     @stack('arriba')
 </head>
 <body>

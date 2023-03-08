@@ -39,8 +39,13 @@
                     </div>
 
                 </div>
-
-                <a href="{{url('veterinarias')}}" class="btn btn-warning">Atrás</a>
-                <button type="submit" class="btn btn-primary">Guardar</button>
+   
+                <div style="margin-bottom: 200px"></div>
+                <button type="submit" class="float2">
+                    <i class="fa fa-check fa-2x my-float3"></i>
+                </button>
+                <a href="{{url('veterinarias')}}" class="float">
+                    <i class="fa fa-arrow-left fa-2x my-float"></i>
+                </a>
             </form>
 @endsection

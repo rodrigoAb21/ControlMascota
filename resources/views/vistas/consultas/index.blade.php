@@ -48,63 +48,7 @@
             </div>
         </div>
     @endforeach
-    <div style="margin-bottom: 200px"></div>
-    @push('arriba')
-        <style>
-            * {
-                padding: 0;
-                margin: 0;
-            }
-
-            .float {
-                position: fixed;
-                width: 60px;
-                height: 60px;
-                bottom: 40px;
-                right: 40px;
-                background-color: #FBC02D;
-                color: #ffffff;
-                border-radius: 50px;
-                text-align: center;
-                box-shadow: 2px 2px 3px #999;
-            }
-
-            .my-float {
-                margin-top: 14px;
-            }
-
-            a.float:hover {
-                visibility: visible;
-                opacity: 1;
-                color: #f0f0f0;
-            }
-
-            .float2 {
-                position: fixed;
-                width: 60px;
-                height: 60px;
-                bottom: 110px;
-                right: 40px;
-                background-color: #0085cc;
-                color: #FFF;
-                border-radius: 50px;
-                text-align: center;
-                box-shadow: 2px 2px 3px #999;
-            }
-
-            .my-float2 {
-                margin-top: 14px;
-            }
-
-            a.float2:hover {
-                visibility: visible;
-                opacity: 1;
-                color: #f0f0f0;
-            }
-
-        </style>
-    @endpush
-
+    
     <a href="{{url('mascotas/'.$mascota->id.'/consultas/create')}}" class="float2">
         <i class="fa fa-plus fa-2x my-float2"></i>
     </a>

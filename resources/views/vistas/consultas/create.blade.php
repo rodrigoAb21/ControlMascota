@@ -57,9 +57,14 @@
                 <div class="container" id="lista">
 
                 </div>
-
-                <a href="{{url('mascotas/'.$mascota_id.'/consultas')}}" class="btn btn-warning">Atrás</a>
-                <button type="submit"  id="btn_guardar" class="btn btn-primary">Guardar</button>
+         
+                <div style="margin-bottom: 200px"></div>
+                <button type="submit" class="float2">
+                    <i class="fa fa-check fa-2x my-float3"></i>
+                </button>
+                <a href="{{url('mascotas/'.$mascota_id.'/consultas')}}" class="float">
+                    <i class="fa fa-arrow-left fa-2x my-float"></i>
+                </a>
             </form>
     <div class="mb-3"></div>
 @endsection
@@ -74,7 +79,7 @@
             var dosis = $('#txt_dosis').val();
             var medicamento = $('#txt_med').val();
 
-            if (cont >= 0 && cantidad != null && cantidad > 0 && dosis != null && medicamento != null){
+            if (cont >= 0 && cantidad != null && cantidad > 0 && dosis != null  && dosis != ""  && medicamento != null){
                 var item = '' +
                     '<div class="mb-3" id="item'+cont+'">' +
                     '<div class="modal-content ">' +
@@ -99,6 +104,8 @@
                 cont++;
                 $("#lista").append(item);
                 limpiar();
+            } else {
+                alert("Rellene todos los campos del tratamiento.");
             }
         }
 
