@@ -16,12 +16,12 @@ class VacunacionController extends Controller
         if ($mascota->usuario_id == Auth::id() || Auth::user()->admin) {
             if (Auth::user()->admin) {
                 $vacunaciones = Vacunacion::where('mascota_id', '=', $mascota_id)
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();    
             } else {
                 $vacunaciones = Vacunacion::where('mascota_id', '=', $mascota_id)
                 ->where('usuario_id', '=', Auth::id())
-                ->orderBy('id', 'asc')
+                ->orderBy('id', 'desc')
                 ->get();
             }
 

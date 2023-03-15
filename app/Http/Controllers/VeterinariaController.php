@@ -11,7 +11,7 @@ class VeterinariaController extends Controller
     {
         return view('vistas.veterinarias.index',
             [
-                'veterinarias' => Veterinaria::orderBy('id', 'asc')->get(),
+                'veterinarias' => Veterinaria::orderBy('id', 'desc')->get(),
             ]
         );
     }

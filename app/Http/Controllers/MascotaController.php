@@ -16,9 +16,9 @@ class MascotaController extends Controller
     public function index()
     {
         if (Auth::user()->admin) {
-            $mascotas = Mascota::orderBy('id', 'asc')->get();
+            $mascotas = Mascota::orderBy('id', 'desc')->get();
         } else {
-            $mascotas = Mascota::where('usuario_id','=', Auth::id())->orderBy('id', 'asc')->get();
+            $mascotas = Mascota::where('usuario_id','=', Auth::id())->orderBy('id', 'desc')->get();
         }
         return view('vistas.mascotas.index', ['mascotas' => $mascotas]);
     }

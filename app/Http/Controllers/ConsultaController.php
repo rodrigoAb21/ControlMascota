@@ -18,12 +18,12 @@ class ConsultaController extends Controller
         $mascota = Mascota::findOrFail($mascota_id);
         if ($mascota->usuario_id == Auth::id() || Auth::user()->admin) {
             if (Auth::user()->admin) {
-                $consultas = Consulta::where('mascota_id', '=', $mascota_id)->orderBy('id', 'asc')->get();
+                $consultas = Consulta::where('mascota_id', '=', $mascota_id)->orderBy('id', 'desc')->get();
             }
             else {
                 $consultas = Consulta::where('mascota_id', '=', $mascota_id)
                 ->where('usuario_id', '=', Auth::id())
-                ->orderBy('id', 'asc')->get();
+                ->orderBy('id', 'desc')->get();
             }
         return view('vistas.consultas.index',
             [

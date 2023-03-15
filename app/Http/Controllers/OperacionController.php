@@ -16,12 +16,12 @@ class OperacionController extends Controller
         if ($mascota->usuario_id == Auth::id() || Auth::user()->admin){
             if (Auth::user()->admin) {
                 $operaciones = Operacion::where('mascota_id','=',$mascota_id)
-                    ->orderBy('id', 'asc')
+                    ->orderBy('id', 'desc')
                     ->get();
             } else {
                 $operaciones = Operacion::where('mascota_id','=',$mascota_id)
                     ->where('usuario_id','=', Auth::id())
-                    ->orderBy('id', 'asc')
+                    ->orderBy('id', 'desc')
                     ->get();
             }
 

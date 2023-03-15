@@ -9,7 +9,7 @@
                     <div class="col-1">
                     </div>
                     <div class="col-11">
-                        <h2 class="card-title" style="color: #91d5f1">Consulta #{{$loop->iteration}}</h2>
+                        <h2 class="card-title" style="color: #91d5f1">Consulta COD: {{$consulta->id}}</h2>
                         <div class="mb-2">
                             <span class="card-text" style="color: #c7c7c7">
                                 <i class="fa fa-clinic-medical me-1"></i> {{$consulta->veterinaria->nombre}}
@@ -39,7 +39,7 @@
                             <a href="{{url('mascotas/'.$mascota->id.'/consultas/'.$consulta->id.'/edit')}}"
                                class="btn btn-warning"><i class="fa fa-pen"></i></a>
                             <button type="button" class="btn btn-danger"
-                                    onclick="modalEliminar('{{$consulta -> nombre}}', '{{url('mascotas/'.$mascota->id.'/consultas/'.$consulta -> id)}}')">
+                                    onclick="modalEliminar('{{$consulta -> id}}', '{{url('mascotas/'.$mascota->id.'/consultas/'.$consulta -> id)}}')">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </div>
@@ -63,7 +63,7 @@
                 $('#modalEliminarForm').attr("action", url);
                 $('#metodo').val("delete");
                 $('#modalEliminarTitulo').html("Eliminar consulta");
-                $('#modalEliminarEnunciado').html("Realmente desea eliminar la consulta: " + nombre + "?");
+                $('#modalEliminarEnunciado').html("Realmente desea eliminar la consulta COD: " + nombre + "?");
                 $('#modalEliminar').modal('show');
             }
         </script>

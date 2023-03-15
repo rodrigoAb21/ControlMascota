@@ -3,7 +3,8 @@
 @section('contenido')
     <div class="row">
         <h2>Registro de "{{$mascota->nombre}}"</h2><br>
-        <div class="col-12">
+        <div class="col"></div>
+        <div class="col-md-6 col-xs-12 col-sm-12">
             <div class="wrimagecard wrimagecard-topimage text-center">
                 <a href="{{url('mascotas/'.$mascota->id.'/consultas')}}">
                     <div class="wrimagecard-topimage_header" style="background-color:rgba(187, 120, 36, 0.1) ">
@@ -48,7 +49,7 @@
                 </a>
             </div>
         </div>
-
+        <div class="col"></div>
     </div>
     
     <a href="{{url('mascotas')}}" class="float">
