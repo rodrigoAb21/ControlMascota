@@ -13,7 +13,7 @@ class VeterinariaFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class VeterinariaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|string|max:255',
+            'direccion' => 'nullable|string|max:255',
+            'telefono' => 'nullable|digits_between:7,8',
+            'celular' => 'nullable|digits_between:7,8',
+            'atencion' => 'required|in:24hrs,Normal',
+            'latitud' => 'nullable|numeric',
+            'longitud' => 'nullable|numeric',
         ];
     }
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OperacionFormRequest;
 use App\Models\Mascota;
 use App\Models\Operacion;
 use App\Models\Veterinaria;
@@ -48,7 +49,7 @@ class OperacionController extends Controller
         return redirect('mascotas');
     }
 
-    public function store($mascota_id, Request $request)
+    public function store($mascota_id, OperacionFormRequest $request)
     {
         $operacion = new Operacion();
         $operacion->descripcion = $request['descripcion'];
@@ -76,7 +77,7 @@ class OperacionController extends Controller
         return redirect('mascotas');
     }
 
-    public function update($mascota_id, Request $request, $id)
+    public function update($mascota_id, OperacionFormRequest $request, $id)
     {
         $operacion = Operacion::findOrFail($id);
         $operacion->descripcion = $request['descripcion'];

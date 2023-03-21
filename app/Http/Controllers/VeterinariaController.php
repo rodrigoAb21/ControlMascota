@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VeterinariaFormRequest;
 use App\Models\Veterinaria;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class VeterinariaController extends Controller
         return view('vistas.veterinarias.create');
     }
 
-    public function store(Request $request)
+    public function store(VeterinariaFormRequest $request)
     {
         $veterinaria = new Veterinaria();
         $veterinaria->nombre = $request['nombre'];
@@ -46,7 +47,7 @@ class VeterinariaController extends Controller
         return view('vistas.veterinarias.edit', ['veterinaria' => Veterinaria::findOrFail($id)]);
     }
 
-    public function update(Request $request, $id)
+    public function update(VeterinariaFormRequest $request, $id)
     {
         $veterinaria = Veterinaria::findOrFail($id);
         $veterinaria->nombre = $request['nombre'];

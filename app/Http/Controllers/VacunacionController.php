@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VacunacionFormRequest;
 use App\Models\Mascota;
 use App\Models\Veterinaria;
 use App\Models\Vacunacion;
@@ -47,7 +48,7 @@ class VacunacionController extends Controller
             ]);
     }
 
-    public function store($mascota_id, Request $request)
+    public function store($mascota_id, VacunacionFormRequest $request)
     {
         $vacunacion = new Vacunacion();
         $vacunacion->tipo_vacuna = $request['tipo_vacuna'];
@@ -77,7 +78,7 @@ class VacunacionController extends Controller
         return redirect('mascotas');
     }
 
-    public function update($mascota_id, Request $request, $id)
+    public function update($mascota_id, VacunacionFormRequest $request, $id)
     {
         $vacunacion = Vacunacion::findOrFail($id);
         $vacunacion->tipo_vacuna = $request['tipo_vacuna'];

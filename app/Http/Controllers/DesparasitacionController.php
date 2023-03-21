@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DesparasitacionFormRequest;
 use App\Models\Desparasitacion;
 use App\Models\Mascota;
 use App\Models\Veterinaria;
@@ -48,7 +49,7 @@ class DesparasitacionController extends Controller
         return redirect('mascotas');
     }
 
-    public function store($mascota_id, Request $request)
+    public function store($mascota_id, DesparasitacionFormRequest $request)
     {
         $desparasitacion = new Desparasitacion();
         $desparasitacion->nombre = $request['nombre'];
@@ -79,7 +80,7 @@ class DesparasitacionController extends Controller
 
     }
 
-    public function update($mascota_id, Request $request, $id)
+    public function update($mascota_id, DesparasitacionFormRequest $request, $id)
     {
         $desparasitacion = Desparasitacion::findOrFail($id);
         $desparasitacion->nombre = $request['nombre'];

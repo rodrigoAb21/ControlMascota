@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ConsultaFormRequest;
 use App\Models\Consulta;
 use App\Models\Mascota;
 use App\Models\Tratamiento;
@@ -45,7 +46,7 @@ class ConsultaController extends Controller
         );
     }
 
-    public function store($mascota_id, Request $request)
+    public function store($mascota_id, ConsultaFormRequest $request)
     {
         try {
             DB::beginTransaction();
@@ -121,7 +122,7 @@ class ConsultaController extends Controller
         
     }
 
-    public function update($mascota_id, Request $request, $id)
+    public function update($mascota_id, ConsultaFormRequest $request, $id)
     {
         try {
             DB::beginTransaction();

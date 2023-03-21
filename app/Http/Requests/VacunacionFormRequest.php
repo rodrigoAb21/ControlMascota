@@ -13,7 +13,7 @@ class VacunacionFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,25 @@ class VacunacionFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'tipo_vacuna' => 'required|string|max:255',
+            'fecha_vacunacion' => 'required|date',
+            'proxima_vacunacion' => 'nullable|date',
+            'nombre' => 'nullable|string|max:255',
+            'costo' => 'nullable|numeric|min:0',
+            'mascota_id' => 'required|numeric|min:1',
+            'veterinaria_id' => 'required|numeric|min:1',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'mascota_id.required' => 'Mascota no valida.',
+            'mascota_id.numeric' => 'Mascota no valida.',
+            'mascota_id.min' => 'Mascota no valida.',
+            'veterinaria_id.required' => 'Veterinaria no valida.',
+            'veterinaria_id.numeric' => 'Veterinaria no valida.',
+            'veterinaria_id.min' => 'Veterinaria no valida.',
         ];
     }
 }

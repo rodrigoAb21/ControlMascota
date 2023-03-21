@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MascotaFormRequest;
 use App\Models\Mascota;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +29,7 @@ class MascotaController extends Controller
         return view('vistas.mascotas.create', ['tipos' => $this->tipos]);
     }
 
-    public function store(Request $request)
+    public function store(MascotaFormRequest $request)
     {
         $mascota = new Mascota();
         $mascota->nombre = $request['nombre'];
@@ -66,7 +67,7 @@ class MascotaController extends Controller
         }
     }
 
-    public function update(Request $request, $id)
+    public function update(MascotaFormRequest $request, $id)
     {
         $mascota = Mascota::findOrFail($id);
         $mascota->nombre = $request['nombre'];

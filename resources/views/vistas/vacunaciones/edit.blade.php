@@ -3,6 +3,15 @@
 <div class="row">
     <div class="col"></div>
     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <div class="card">
             <div class="card-header text-center">
                  <h4>Editar vacunación</h4>
