@@ -29,7 +29,6 @@ class DesparasitacionFormRequest extends FormRequest
             'peso' => 'nullable|numeric|min:0',
             'proxima_desparasitacion' => 'nullable|date',
             'costo' => 'nullable|numeric|min:0',
-            'mascota_id' => 'required|numeric|min:1',
             'veterinaria_id' => 'required|numeric|min:1',
         ];
     }
@@ -37,9 +36,6 @@ class DesparasitacionFormRequest extends FormRequest
     public function messages()
     {
         return [
-            'mascota_id.required' => 'Mascota no valida.',
-            'mascota_id.numeric' => 'Mascota no valida.',
-            'mascota_id.min' => 'Mascota no valida.',
             'veterinaria_id.required' => 'Veterinaria no valida.',
             'veterinaria_id.numeric' => 'Veterinaria no valida.',
             'veterinaria_id.min' => 'Veterinaria no valida.',

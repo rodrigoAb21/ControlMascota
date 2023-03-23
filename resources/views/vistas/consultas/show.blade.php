@@ -59,6 +59,10 @@
                         </div>
                     @endforeach
                 </div>
+                    
+                <a href="{{url('mascotas/'.$mascota_id.'/consultas/'.$consulta->id.'/edit')}}" class="float2">
+                    <i class="fa fa-pen fa-2x my-float2"></i>
+                </a>
                 <a href="{{url('mascotas/'.$mascota_id.'/consultas')}}" class="float">
                     <i class="fa fa-arrow-left fa-2x my-float"></i>
                 </a>
