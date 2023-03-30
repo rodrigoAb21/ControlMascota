@@ -5,14 +5,22 @@ namespace App\Http\Controllers;
 use App\Http\Requests\VeterinariaFormRequest;
 use App\Models\Veterinaria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VeterinariaController extends Controller
 {
     public function index()
     {
+        if(Auth::user()->admin){
+            $veterinarias = Veterinaria::orderBy('id', 'desc')->get();
+        } else {
+            $veterinarias = Veterinaria::where('usuario_id', '=', Auth::id())
+            ->orderBy('id', 'desc')
+            ->get();
+        }
         return view('vistas.veterinarias.index',
             [
-                'veterinarias' => Veterinaria::orderBy('id', 'desc')->get(),
+                'veterinarias' => $veterinarias,
             ]
         );
     }
@@ -32,19 +40,20 @@ class VeterinariaController extends Controller
         $veterinaria->atencion = $request['atencion'];
         $veterinaria->latitud = $request['latitud'];
         $veterinaria->longitud = $request['longitud'];
+        $veterinaria->usuario_id = Auth::id();
         $veterinaria->save();
 
         return redirect('veterinarias');
     }
 
-    public function show($id)
-    {
-        return view('vistas.veterinarias.show', ['veterinaria' => Veterinaria::findOrFail($id)]);
-    }
-
     public function edit($id)
     {
-        return view('vistas.veterinarias.edit', ['veterinaria' => Veterinaria::findOrFail($id)]);
+        $veterinaria = Veterinaria::findOrFail($id);
+        if ($veterinaria->usuario_id == Auth::id() || Auth::user()->admin) {
+            return view('vistas.veterinarias.edit', ['veterinaria' => $veterinaria]);
+        }
+
+        return redirect('veterinarias');
     }
 
     public function update(VeterinariaFormRequest $request, $id)

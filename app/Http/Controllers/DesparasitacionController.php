@@ -6,7 +6,6 @@ use App\Http\Requests\DesparasitacionFormRequest;
 use App\Models\Desparasitacion;
 use App\Models\Mascota;
 use App\Models\Veterinaria;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DesparasitacionController extends Controller
@@ -43,7 +42,7 @@ class DesparasitacionController extends Controller
             return view('vistas.desparasitaciones.create',
                 [
                     'mascota_id' => $mascota_id,
-                    'veterinarias' => Veterinaria::all(),
+                    'veterinarias' => Veterinaria::where('usuario_id', '=', Auth::id())->get(),
                 ]);
         }
         return redirect('mascotas');
@@ -72,7 +71,7 @@ class DesparasitacionController extends Controller
             return view('vistas.desparasitaciones.edit', [
                 'desparasitacion' => $desparasitacion,
                 'mascota_id' => $mascota_id,
-                'veterinarias' => Veterinaria::all(),
+                'veterinarias' => Veterinaria::where('usuario_id', '=', Auth::id())->get(),
             ]);
         }
 

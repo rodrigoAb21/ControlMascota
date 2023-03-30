@@ -20,5 +20,6 @@ class Veterinaria extends Model
         'atencion',
         'latitud',
         'longitud',
+        'usuario_id',
     ];
 }

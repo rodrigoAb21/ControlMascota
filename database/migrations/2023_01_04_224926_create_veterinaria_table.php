@@ -22,6 +22,10 @@ class CreateVeterinariaTable extends Migration
             $table->string('atencion')->nullable();
             $table->double('latitud')->nullable();
             $table->double('longitud')->nullable();
+            
+            $table->unsignedBigInteger('usuario_id');
+            $table->foreign('usuario_id')->references('id')
+                ->on('usuario')->onDelete('cascade');
         });
     }
 

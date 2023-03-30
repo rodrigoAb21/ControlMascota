@@ -6,7 +6,6 @@ use App\Http\Requests\OperacionFormRequest;
 use App\Models\Mascota;
 use App\Models\Operacion;
 use App\Models\Veterinaria;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class OperacionController extends Controller
@@ -43,7 +42,7 @@ class OperacionController extends Controller
             return view('vistas.operaciones.create',
                 [
                     'mascota_id' => $mascota_id,
-                    'veterinarias' => Veterinaria::all(),
+                    'veterinarias' => Veterinaria::where('usuario_id', '=', Auth::id())->get(),
                 ]);
         }
         return redirect('mascotas');
@@ -71,7 +70,7 @@ class OperacionController extends Controller
                 [
                     'operacion' => $operacion,
                     'mascota_id' => $mascota_id,
-                    'veterinarias' => Veterinaria::all(),
+                    'veterinarias' => Veterinaria::where('usuario_id', '=', Auth::id())->get(),
                 ]);
         }
         return redirect('mascotas');

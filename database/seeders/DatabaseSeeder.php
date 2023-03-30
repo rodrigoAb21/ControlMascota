@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'telefono' => '33532021',
             'celular' => '73194476',
             'atencion' => '24hrs',
+            'usuario_id' => 1,
         ]);
 
         DB::table('mascota')->insert([

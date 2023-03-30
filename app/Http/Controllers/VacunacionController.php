@@ -6,7 +6,6 @@ use App\Http\Requests\VacunacionFormRequest;
 use App\Models\Mascota;
 use App\Models\Veterinaria;
 use App\Models\Vacunacion;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class VacunacionController extends Controller
@@ -44,7 +43,7 @@ class VacunacionController extends Controller
         return view('vistas.vacunaciones.create',
             [
                 'mascota_id' => $mascota_id,
-                'veterinarias' => Veterinaria::all(),
+                'veterinarias' => Veterinaria::where('usuario_id', '=', Auth::id())->get(),
             ]);
     }
 
@@ -71,7 +70,7 @@ class VacunacionController extends Controller
             return view('vistas.vacunaciones.edit', [
                 'vacunacion' => $vacunacion,
                 'mascota_id' => $mascota_id,
-                'veterinarias' => Veterinaria::all(),
+                'veterinarias' => Veterinaria::where('usuario_id', '=', Auth::id())->get(),
             ]);    
         }
 

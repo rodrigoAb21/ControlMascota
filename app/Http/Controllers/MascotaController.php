@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\MascotaFormRequest;
 use App\Models\Mascota;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class MascotaController extends Controller

@@ -8,7 +8,6 @@ use App\Models\Mascota;
 use App\Models\Tratamiento;
 use App\Models\Veterinaria;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -40,7 +39,7 @@ class ConsultaController extends Controller
     {
         return view('vistas.consultas.create',
             [
-                'veterinarias' => Veterinaria::all(),
+                'veterinarias' => Veterinaria::where('usuario_id', '=', Auth::id())->get(),
                 'mascota_id' => $mascota_id,
             ]
         );
@@ -112,7 +111,7 @@ class ConsultaController extends Controller
             return view('vistas.consultas.edit',
             [
                 'consulta' => $consulta,
-                'veterinarias' => Veterinaria::all(),
+                'veterinarias' => Veterinaria::where('usuario_id', '=', Auth::id())->get(),
                 'mascota_id' => $mascota_id,
                 'tratamientos' => Tratamiento::where('consulta_id', '=', $id)->get(),
             ]);
